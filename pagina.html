@@ -3,71 +3,86 @@
     <head>
         <meta charset="UTF-8">
         <title>Introducción a las aplicaciones web HTML</title>
-        
-        <style>
-            h1 {
-            color: rgb(46, 0, 232);
-            }
-            header {
-                background-color: rgb(0, 0, 0);
-                padding:10px;
-            }
-            body {
-                background-color: rgb(221, 219, 231);
-                padding:10px;
-            }
-
-            #color-especial {
-                color: rgb(255, 255, 255);
-            }
-
-        </style>
+        <link rel="stylesheet" href="estilos.css">
 
     </head>
     <body>
         <header>
-            <h1>Título 1</h1>
+            <h1>Introducción a las aplicaciones web HTML</h1>
 
         </header>
-        
+        <nav>
+            <h4>Indice</h4>
+            <ul>
+                <li><a href="#">Principales proyectos</a></li>
+                <li><a href="#">Aficiones e intereses</a></li>
+                <li><a href="#">Artículos interesantes</a></li>
+                <li><a href="#">Preguntas</a></li>
+            </ul>
+        </nav>
+
         <p>
             Este es un párrafo <br> 
             <em> cursivas </em>
             <strong> negritas </strong>  
         </p>
 
-        <h2 id="color-especial">Subtítulo 2 de color</h2>
-        <p>
-            Valeria Zúñiga Mendoza <br> 
-            A01705435 <br> 
-            correo: A01705435@tec.mx
-        </p>
+        <section>
+            <p>
+                Valeria Zúñiga Mendoza <br> 
+                A01705435 <br> 
+                correo: A01705435@tec.mx
+            </p>
 
-        <h3>Principales proyectos</h3>
-        <ul>
-            <li>elemento 1</li>
-            <li>elemento 2</li>
-            <li>elemento 3</li>
-        </ul>
+            <h3>Principales proyectos</h3>
+            <ul>
+                <li>Programa orientado a objetos de reservación de hotel.<br>
+                    <a target="_blank"  href="https://github.com/ZValer/Hotel"> https://github.com/ZValer/Hotel</a></li>
+                <li>Programa orientado a objetos de recetario que busca tener poder agregar diferentes recetas de una manera ordenada y buscarlas dependiendo de las necesidades. <br> 
+                    <a target="_blank"  href="https://github.com/ZValer/Recetario/tree/main"> https://github.com/ZValer/Recetario/tree/main</a></li>
+                <li>Identificación de requerimientos de software a propuesta de seguimiento de requisitos de graduación del modelo Tec21.<br></li>
+    
+            </ul>
 
-        <h3>Aficiones</h3>
-        <ol>
-            <li>elemento 1</li>
-            <li>elemento 2</li>
-            <li>elemento 3</li>
-        </ol>
+            <h3>Aficiones e intereses</h3>
+            <ol>
+                <li>Programación y desarrollo de software</li>
+                <li>Análisis de datos</li>
+                <li>Técnicas de organización y métodos de productividad</li>
+                <li>Tecnologías de Inteligencia Artificial</li>
+                <li>Automatización de procesos</li>
+                <li>Desarrollo de páginas web</li>
+            </ol>            
 
-        <h3>artículos interesantes tuyos, sobre tí, o sobre algo que te apasione</h3>
-        <ul>
-            <li>elemento 1</li>
-            <li>elemento 2</li>
-            <li>elemento 3</li>
-        </ul>
-
-        <h4>Imagen: Subtítulo 4</h4>
-        <img src="introduce url" alt="texto para describir imágen" width="300">
+            <aside>
+                <h3>Artículos interesantes</h3>
+                <table>
+                    <thead>
+                        <tr><th>Evolución de AI</th><th>Automatización</th><th>Técnicas de organización</th></tr>
+                    </thead>
         
-        <h3>Aficiones</h3>
+                    <tbody>
+                        <tr>
+                            <td><img src="https://www.bbva.ch/wp-content/uploads/2021/10/36.-recurso_-IA.jpg" alt="Evolución de AI" width="150" >
+                            </td>
+                            <td><img src="https://directivosygerentes.es/wp-content/uploads/2020/12/automatizacion-inteligente-modelo-de-negocio-1024x683.jpg" alt="Automatización" width="150">
+                            </td>
+                            <td><img src="https://kodigo.org/wp-content/uploads/2023/06/pexels-thisisengineering-3861972-1024x683.jpg" alt="Técnicas de organización" width="150">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>https://www.bbva.ch/noticia/la-evolucion-de-la-inteligencia-artificial-el-nacimiento-de-una-nueva-industria/</td>
+                            <td>https://directivosygerentes.es/innovacion/73-por-ciento-empresas-utiliza-tecnologias-automatizacion-inteligente-en-modelo-negocio</td>
+                            <td>https://kodigo.org/5-tips-de-productividad-para-programadores-aprende-a-organizar-mejor-tus-tiempos/</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </aside> 
+            
+        </section>
+        <article>
+            <h3>Preguntas</h3>
         <ol>
             <li>¿Cuál es la diferencia entre Internet y la World Wide Web?
                 <p>Respuesta: Internet es la infraestructura global de redes de computadoras interconectadas, mientras que la World Wide Web es un sistema de información que utiliza Internet para acceder a páginas web mediante navegadores.</p>
@@ -105,8 +120,8 @@
             <li>¿Cuáles son los principales controles de una forma HTML5?
                 <p>Respuesta: Algunos de los principales controles de una forma HTML5 son input, textarea, select, button, entre otros.</p>
             </li>
-            <li>¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para descubrirlo: <a href="http://html5test.com/">http://html5test.com/</a> (Al responder la pregunta recuerda poner el navegador que utilizas)
-                <p>Respuesta: [Inserta la puntuación HTML5 de tu navegador] (Utilicé [nombre de tu navegador])</p>
+            <li>¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para descubrirlo: <a target="_blank" href="https://html5test.co/"> https://html5test.co/ </a> (Al responder la pregunta recuerda poner el navegador que utilizas)
+                <p>Respuesta: Puntuación HTML5 de mi navegador: 581/594 puntos (Utilicé Chrome 121 en Windows 10)</p>
             </li>
             <li>¿Cuál es el ciclo de vida de los sistemas de información?
                 <p>Respuesta: El ciclo de vida de los sistemas de información incluye la identificación de necesidades, diseño, desarrollo, implementación, operación y mantenimiento del sistema.</p>
@@ -115,8 +130,7 @@
                 <p>Respuesta: El ciclo de desarrollo de sistemas de información sigue un proceso iterativo que incluye análisis, diseño, implementación y pruebas, con la posibilidad de retroalimentación y ajustes en cada etapa.</p>
             </li>
         </ol>
-
-        
+        </article> 
         
         <footer>
             <p>Editor HTML: Visual Studio Code<br> 

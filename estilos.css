@@ -1,0 +1,45 @@
+header {
+    background-color: #052326;
+    color: #F2F2F2;
+    text-align: center;
+    padding: 10px;
+}
+nav {
+    background-color: #9BBCBF;
+    padding: 10px;
+}
+
+section {
+    background-color: #575859;
+    color: #F2F2F2;
+    padding: 20px;
+    margin: 20px;
+}
+
+aside {
+    background-color: #9BBCBF;
+    padding: 10px;
+    margin: 10px;
+}
+
+article {
+    background-color: #dbdedf;
+    padding: 20px;
+    margin: 5px;
+}
+
+footer {
+    background-color: #052326;
+    color: #F2F2F2;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* pseudoclase */
+/* al poner el mouse sobre este cambia */
+td:hover{
+    color: rgb(0, 0, 0);
+}
+
+
