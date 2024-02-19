@@ -41,5 +41,38 @@ footer {
 td:hover{
     color: rgb(0, 0, 0);
 }
+table{
+    width:900px;
+}
+th{
+    text-align: left;
+}
 
+body {
+    margin: 0 auto;
+    max-width: 50em;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif; /*Utilizar helvetica, si no está instalada usa Arial*/
+    line-height: 1.5;
+    padding: 4em 1em;
+  }
 
+h3 {
+    margin-top: 1em;
+    padding-top: 1em;
+  }
+
+  a {
+    color: #e81c4f;
+  }
+
+.preguntas{
+    color:  #771589;
+}
+
+ol li::marker {
+    color:  #771589; /* Cambia el color de los números */
+}
+
+#preguntasHTML{
+    color:  #771589;
+}

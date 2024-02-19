@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Introducción a las aplicaciones web HTML</title>
-        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="estilos.min.css">
 
     </head>
     <body>
@@ -45,14 +45,14 @@
             </ul>
 
             <h3>Aficiones e intereses</h3>
-            <ol>
+            <ul>
                 <li>Programación y desarrollo de software</li>
                 <li>Análisis de datos</li>
                 <li>Técnicas de organización y métodos de productividad</li>
                 <li>Tecnologías de Inteligencia Artificial</li>
                 <li>Automatización de procesos</li>
                 <li>Desarrollo de páginas web</li>
-            </ol>            
+            </ul>            
 
             <aside>
                 <h3>Artículos interesantes</h3>
@@ -81,63 +81,81 @@
             </aside> 
             
         </section>
+        
         <article>
-            <h3>Preguntas</h3>
-        <ol>
-            <li>¿Cuál es la diferencia entre Internet y la World Wide Web?
-                <p>Respuesta: Internet es la infraestructura global de redes de computadoras interconectadas, mientras que la World Wide Web es un sistema de información que utiliza Internet para acceder a páginas web mediante navegadores.</p>
-            </li>
-            <li>¿Cuáles son las partes de un URL?
-                <p>Respuesta: Un URL consta de protocolo (https), dominio, subdominio, ruta y parámetros opcionales.</p>
-            </li>
-            <li>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?
-                <p>Respuesta: GET para solicitar datos, HEAD para obtener solo los encabezados, POST para enviar datos, PUT para actualizar recursos, PATCH para modificar parcialmente recursos, DELETE para eliminar recursos.</p>
-            </li>
-            <li>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?
-                <p>Respuesta: Se debe utilizar el método POST porque envía los datos de forma segura al servidor sin mostrarlos en la URL, lo que es importante para información sensible como contraseñas.</p>
-            </li>
-            <li>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?
-                <p>Respuesta: El método GET se utiliza para solicitar la página web correspondiente al URL.</p>
-            </li>
-            <li>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?
-                <p>Respuesta: El código 200 indica que la solicitud fue exitosa, no hubo errores.</p>
-            </li>
-            <li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?
-                <p>Respuesta: Sí, es responsabilidad del desarrollador corregir el error 404, que indica que la página solicitada no se encuentra, para mejorar la experiencia del usuario y mantener la integridad del sitio.</p>
-            </li>
-            <li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?
-                <p>Respuesta: Sí, es responsabilidad del desarrollador corregir el error 500, que indica un error interno del servidor, para asegurar que el sitio funcione correctamente y evitar pérdida de datos o funcionalidades.</p>
-            </li>
-            <li>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.
-                <p>Respuesta: Un atributo depreciado en HTML5 significa que aún es compatible pero se considera obsoleto y puede ser eliminado en futuras versiones. Algunos elementos de HTML 4 que están desaprobados en HTML5 incluyen font, center, strike, entre otros.</p>
-            </li>
-            <li>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?
-                <p>Respuesta: HTML5 introduce nuevas etiquetas semánticas, soporte para audio y video, capacidades de almacenamiento local, mejor manejo de formularios y más, en comparación con HTML4.</p>
-            </li>
-            <li>¿Qué componentes de estructura y estilo tiene una tabla?
-                <p>Respuesta: Los componentes de estructura de una tabla incluyen filas (tr), columnas (td), encabezados de fila (th) y el cuerpo de la tabla (tbody). Para el estilo, se pueden aplicar estilos CSS para modificar el aspecto visual de la tabla, como el color de fondo, bordes y texto.</p>
-            </li>
-            <li>¿Cuáles son los principales controles de una forma HTML5?
-                <p>Respuesta: Algunos de los principales controles de una forma HTML5 son input, textarea, select, button, entre otros.</p>
-            </li>
-            <li>¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para descubrirlo: <a target="_blank" href="https://html5test.co/"> https://html5test.co/ </a> (Al responder la pregunta recuerda poner el navegador que utilizas)
-                <p>Respuesta: Puntuación HTML5 de mi navegador: 581/594 puntos (Utilicé Chrome 121 en Windows 10)</p>
-            </li>
-            <li>¿Cuál es el ciclo de vida de los sistemas de información?
-                <p>Respuesta: El ciclo de vida de los sistemas de información incluye la identificación de necesidades, diseño, desarrollo, implementación, operación y mantenimiento del sistema.</p>
-            </li>
-            <li>¿Cuál es el ciclo de desarrollo de sistemas de información?
-                <p>Respuesta: El ciclo de desarrollo de sistemas de información sigue un proceso iterativo que incluye análisis, diseño, implementación y pruebas, con la posibilidad de retroalimentación y ajustes en cada etapa.</p>
-            </li>
-        </ol>
+            <h3 id="preguntasHTML">Preguntas de HTML</h3>
+            <ol>
+                <li><span class="preguntas">¿Cuál es la diferencia entre Internet y la World Wide Web?</span>
+                    <p>Internet es la infraestructura global de redes de computadoras interconectadas, mientras que la World Wide Web es un sistema de información que utiliza Internet para acceder a páginas web mediante navegadores.</p>
+                </li>
+                <li><span class="preguntas">¿Cuáles son las partes de un URL?</span>
+                    <p>Un URL consta de protocolo (https), dominio, subdominio, ruta y parámetros opcionales.</p>
+                </li>
+                <li><span class="preguntas">¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</span>
+                    <p>GET para solicitar datos, HEAD para obtener solo los encabezados, POST para enviar datos, PUT para actualizar recursos, PATCH para modificar parcialmente recursos, DELETE para eliminar recursos.</p>
+                </li>
+                <li><span class="preguntas">¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</span>
+                    <p>Se debe utilizar el método POST porque envía los datos de forma segura al servidor sin mostrarlos en la URL, lo que es importante para información sensible como contraseñas.</p>
+                </li>
+                <li><span class="preguntas">¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</span>
+                    <p>El método GET se utiliza para solicitar la página web correspondiente al URL.</p>
+                </li>
+                <li><span class="preguntas">Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</span>
+                    <p>El código 200 indica que la solicitud fue exitosa, no hubo errores.</p>
+                </li>
+                <li><span class="preguntas">¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</span>
+                    <p>Sí, es responsabilidad del desarrollador corregir el error 404, que indica que la página solicitada no se encuentra, para mejorar la experiencia del usuario y mantener la integridad del sitio.</p>
+                </li>
+                <li><span class="preguntas">¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</span>
+                    <p>Sí, es responsabilidad del desarrollador corregir el error 500, que indica un error interno del servidor, para asegurar que el sitio funcione correctamente y evitar pérdida de datos o funcionalidades.</p>
+                </li>
+                <li><span class="preguntas">¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</span>
+                    <p>Un atributo depreciado en HTML5 significa que aún es compatible pero se considera obsoleto y puede ser eliminado en futuras versiones. Algunos elementos de HTML 4 que están desaprobados en HTML5 incluyen font, center, strike, entre otros.</p>
+                </li>
+                <li><span class="preguntas">¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</span>
+                    <p>HTML5 introduce nuevas etiquetas semánticas, soporte para audio y video, capacidades de almacenamiento local, mejor manejo de formularios y más, en comparación con HTML4.</p>
+                </li>
+                <li><span class="preguntas">¿Qué componentes de estructura y estilo tiene una tabla?</span>
+                    <p>Los componentes de estructura de una tabla incluyen filas (tr), columnas (td), encabezados de fila (th) y el cuerpo de la tabla (tbody). Para el estilo, se pueden aplicar estilos CSS para modificar el aspecto visual de la tabla, como el color de fondo, bordes y texto.</p>
+                </li>
+                <li><span class="preguntas">¿Cuáles son los principales controles de una forma HTML5?</span>
+                    <p>Algunos de los principales controles de una forma HTML5 son input, textarea, select, button, entre otros.</p>
+                </li>
+                <li><span class="preguntas">¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para descubrirlo: <a target="_blank" href="https://html5test.co/"> https://html5test.co/ </a> (Al responder la pregunta recuerda poner el navegador que utilizas)</span>
+                    <p>Puntuación HTML5 de mi navegador: 581/594 puntos (Utilicé Chrome 121 en Windows 10)</p>
+                </li>
+                <li><span class="preguntas">¿Cuál es el ciclo de vida de los sistemas de información?</span>
+                    <p>El ciclo de vida de los sistemas de información incluye la identificación de necesidades, diseño, desarrollo, implementación, operación y mantenimiento del sistema.</p>
+                </li>
+                <li><span class="preguntas">¿Cuál es el ciclo de desarrollo de sistemas de información?</span>
+                    <p>El ciclo de desarrollo de sistemas de información sigue un proceso iterativo que incluye análisis, diseño, implementación y pruebas, con la posibilidad de retroalimentación y ajustes en cada etapa.</p>
+                </li>
+            </ol>
+            
         </article> 
         
+        <article>
+            <h3>Preguntas de CSS</h3>
+            <ol>
+                <li><span class="preguntas">Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS?</span>
+                    <p>El uso de !important en CSS debe evitarse en la medida de lo posible, ya que puede complicar el mantenimiento del código y dificultar la resolución de conflictos entre estilos. Es preferible utilizar especificidad adecuada y estructurar el CSS de manera que se minimicen los casos en los que sea necesario recurrir a !important.</p>
+                </li>
+                <li><span class="preguntas">Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</span>
+                    <p>La elección de una imagen de fondo en una página HTML debe hacerse con cuidado porque puede afectar la legibilidad del contenido, el rendimiento de la página y la accesibilidad para los usuarios. Es importante seleccionar una imagen que complemente el contenido de la página, sea lo suficientemente ligera para cargar rápidamente y no distraiga al usuario.</p>
+                </li>
+                <li><span class="preguntas">Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?</span>
+                    <p>La elección de las unidades de estilo depende del contexto y del objetivo específico. En general, se recomienda utilizar unidades relativas como porcentaje (%) para dimensiones que deben ser flexibles y adaptarse al tamaño del contenedor, píxeles (px) para dimensiones fijas y puntos (pt) para tamaños de fuente cuando se requiere consistencia en dispositivos de pantalla.</p>
+                </li>
+                <li><span class="preguntas">¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</span>
+                    <p>El uso de una versión minimizada del CSS mejora el rendimiento del sitio al reducir el tamaño del archivo CSS, lo que resulta en tiempos de carga más rápidos. Al eliminar espacios en blanco, comentarios y otros caracteres innecesarios, la versión minimizada reduce el tamaño del archivo CSS, lo que significa que se transfiere menos datos entre el servidor y el cliente, reduciendo así el tiempo de carga de la página.</p>
+                </li>
+            </ol>
+        </article>
+
         <footer>
             <p>Editor HTML: Visual Studio Code<br> 
             <a target="_blank" (nueva ventana) href="https://code.visualstudio.com/"> https://code.visualstudio.com/ </a>
             </p>
-            
-
         </footer>
     </body>
 </html>
