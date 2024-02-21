@@ -3,60 +3,151 @@
     <head>
         <meta charset="UTF-8">
         <title>Laboratorio 4: Fundamentos de JavaScript</title>
-        <link rel="stylesheet" href="estilos.min.css">
-
+        <!-- <link rel="stylesheet" href="estilos.min.css">
+        -->
     </head>
     <body>
         <header>
             <h1>Laboratorio 4: Fundamentos de JavaScript</h1>
 
         </header>
-
-        <section>
-            <p>
-                Valeria Zúñiga Mendoza <br> 
-                A01705435 <br> 
-                correo: A01705435@tec.mx
-            </p>           
         
-        <ul>
-            <li><p>1:
-                Entrada: un número pedido con un prompt. Salida: Una tabla con los números del 1 al número dado con sus cuadrados y cubos. Utiliza document.write para producir la salida
-            </p></li>
-            <li><p>2:
-                Entrada: Usando un prompt se pide el resultado de la suma de 2 números generados de manera aleatoria. Salida: La página debe indicar si el resultado fue correcto o incorrecto, y el tiempo que tardó el usuario en escribir la respuesta.
-            </p></li>
-            <li><p>3:
-                Función: contador. Parámetros: Un arreglo de números. Regresa: La cantidad de números negativos en el arreglo, la cantidad de 0's, y la cantidad de valores mayores a 0 en el arreglo.
-            </p></li>
-            <li><p>4:
-                Función: promedios. Parámetros: Un arreglo de arreglos de números. Regresa: Un arreglo con los promedios de cada uno de los renglones de la matriz.
-            </p></li>
-            <li><p>5:
-                Función: inverso. Parámetros: Un número. Regresa: El número con sus dígitos en orden inverso.
-            </p></li>
-            <li><p>6:
-                Crea una solución para un problema de tu elección (puede ser algo relacionado con tus intereses, alguna problemática que hayas identificado en algún ámbito, un problema de programación que hayas resuelto en otro lenguaje, un problema de la ACM, entre otros). El problema debe estar descrito en un documento HTML, y la solución implementada en JavaScript, utilizando al menos la creación de un objeto, el objeto además de su constructor deben tener al menos 2 métodos. Muestra los resultados en el documento HTML.
-            </p>
-            <p>
-                <h1>Administrador de Tareas</h1>
-                <p>
-                    Solución para un administrador de tareas donde puedas ir agregando tus tareas y visualizandolas de forma ordenada
+        <p>
+            Valeria Zúñiga Mendoza <br> 
+            A01705435 <br> 
+            correo: A01705435@tec.mx
+        </p>           
+        
+        <div id="ejercicios">
+            <h1>Ejercicios</h1>
+            <ol>
+                <li><p>
+                    Entrada: un número pedido con un prompt. Salida: Una tabla con los números del 1 al número dado con sus cuadrados y cubos. Utiliza document.write para producir la salida
+                    <br><br> Tabla después en la página
+                    <a href="#cuadradosCubos"> Ir a tabla </a>
+                </p></li>
+                <li id="ejercicio2"><p>
+                    Entrada: Usando un prompt se pide el resultado de la suma de 2 números generados de manera aleatoria. Salida: La página debe indicar si el resultado fue correcto o incorrecto, y el tiempo que tardó el usuario en escribir la respuesta.
+                </p></li>
+                <li><p>
+                    Función: contador. Parámetros: Un arreglo de números. Regresa: La cantidad de números negativos en el arreglo, la cantidad de 0's, y la cantidad de valores mayores a 0 en el arreglo.
+                    
+                    <label for="numeros">Ingrese los números del arreglo separados por comas:</label>
+                    <input type="text" id="numeros">
+                    <button onclick="contador()">Calcular</button>
+                    <div id="resultadoContador"></div>
+
+                </p></li>
+                <li><p>
+                    Función: promedios. Parámetros: Un arreglo de arreglos de números. Regresa: Un arreglo con los promedios de cada uno de los renglones de la matriz.
+                    <label for="arregloNumeros"><br><br>Ingrese los números del arreglo de arreglos separados por comas y los arreglos separados por punto y coma (;):</label>
+                    <input type="text" id="arregloNumeros">
+                    <button onclick="promedios()">Calcular Promedios</button>
+
+                    <div id="resultadoPromedios"></div>
+                
+                </p></li>
+                <li><p>
+                    Función: inverso. Parámetros: Un número. Regresa: El número con sus dígitos en orden inverso.
+                
+                    <label for="numero">Ingrese un número:</label>
+                    <input type="number" id="numero">
+                    <button onclick="inverso()">Calcular Inverso</button>
+
+                    <div id="resultadoInverso"></div>
+                </p></li>
+                <li><p>
+                    Crea una solución para un problema de tu elección (puede ser algo relacionado con tus intereses, alguna problemática que hayas identificado en algún ámbito, un problema de programación que hayas resuelto en otro lenguaje, un problema de la ACM, entre otros). El problema debe estar descrito en un documento HTML, y la solución implementada en JavaScript, utilizando al menos la creación de un objeto, el objeto además de su constructor deben tener al menos 2 métodos. Muestra los resultados en el documento HTML.
                 </p>
+                <p>
+                    <h3>Administrador de Tareas</h3>
+                    <p>
+                        Solución para un administrador de tareas donde puedas ir agregando tus tareas y visualizandolas de forma ordenada
+                    </p>
+    
+                    <div id="formulario">
+                        <input type="text" id="nuevaTareaInput" placeholder="Ingrese una nueva tarea">
+                        <button onclick="agregarTarea()">Agregar Tarea</button>
+                    </div>
+    
+                    <h4>Lista de Tareas</h4>
+                    <ul id="listaTareas"></ul>
+                </p>
+                </li>
+            </ol>  
+        </div> 
 
-                <div id="formulario">
-                    <input type="text" id="nuevaTareaInput" placeholder="Ingrese una nueva tarea">
-                    <button onclick="agregarTarea()">Agregar Tarea</button>
-                </div>
+        <div id="preguntas">
+            <h2>Preguntas JavaScript</h2>
+            <ol>
+                <li>¿Qué diferencias y semejanzas hay entre Java y JavaScript?
+                    <p> Ambos lenguajes utilizan una sintaxis similar a C y comparten algunas estructuras de control de flujo y conceptos de programación como bucles, condicionales, funciones, etc. Sin embargo, Java es un lenguaje de programación de propósito general, mientras que JavaScript es un lenguaje de secuencias de comandos principalmente utilizado para desarrollo web.
+                    </p>
+                </li>
+                <li>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)
+                    <ul>
+                        <li>
+                            getDate(): Devuelve el día del mes (de 1 a 31).
+                        </li>
+                        <li>
+                            getMonth(): Devuelve el mes (de 0 a 11).
+                        </li>
+                        <li>
+                            getFullYear(): Devuelve el año con cuatro dígitos.
+                        </li>
+                        <li>
+                            getHours(): Devuelve la hora (0-23).
+                        </li>
+                        <li>
+                            getMinutes(): Devuelve los minutos (0-59).<br><br>
+                        </li>
+                    </ul>
+                </li>
+                <li>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)
+                    <ul>
+                        <li>
+                            push(): Agrega uno o más elementos al final de un arreglo y devuelve la nueva longitud del arreglo.
+                        </li>
+                        <li>
+                            pop(): Elimina el último elemento de un arreglo y lo devuelve.
+                        </li>
+                        <li>
+                            splice(): Cambia el contenido de un arreglo eliminando elementos existentes y/o agregando nuevos elementos.
+                        </li>
+                        <li>
+                            forEach(): Ejecuta una función dada una vez por cada elemento del arreglo.
+                        </li>
+                        <li>
+                            indexOf(): Devuelve el primer índice en el que se encuentra un elemento dado en el arreglo, o -1 si no está presente.<br><br>
+                        </li>
+                    </ul>
+                </li>
+                <li>¿Cómo se declara una variable con alcance local dentro de una función?
+                    <p>
+                        function miFuncion() { <br>
+                            let variableLocal = 10; //declara una variable de manera moderna<br>
+                            const otraVariableLocal = "Hola"; //declarar constante<br>
+                            // Resto del código...<br>
+                        }
+                    </p>
+                </li>
+                <li>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?
+                    <ul>
+                        <li>
+                            Las variables globales pueden ser accedidas y modificadas desde cualquier parte del código, lo que puede dificultar el seguimiento de los cambios y la depuración.
+                        </li>
+                        <li>
+                            Las variables globales pueden ser sobrescritas por accidente dentro de funciones, lo que puede causar comportamientos inesperados y difíciles de diagnosticar.
+                        </li>
+                        <li>
+                            Puede haber colisiones de nombres si se utilizan variables globales con nombres comunes en diferentes partes del código, lo que puede provocar errores difíciles de identificar.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>   
 
-                <h2>Lista de Tareas</h2>
-                <ul id="listaTareas"></ul>
-            </p>
-        
-            </li>
-
-        </ul>        
-
+        <h4 id="cuadradosCubos">Tabla de cuadrados y cubos</h4>
     <script src="JavaScript.js"></script>
     </body>
 </html>
