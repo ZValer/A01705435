@@ -119,3 +119,47 @@ un objeto, el objeto además de su constructor deben tener al menos 2 métodos.
 Muestra los resultados en el documento HTML.
 */
 
+// Definición del objeto Tarea
+function Tarea(id, descripcion, completada) {
+    this.id = id;
+    this.descripcion = descripcion;
+    this.completada = completada;
+}
+
+// Métodos del objeto Tarea
+Tarea.prototype.marcarComoCompletada = function() {
+    this.completada = true;
+};
+
+Tarea.prototype.eliminar = function() {
+    // Aquí iría la lógica para eliminar la tarea, por ejemplo, de una lista de tareas
+};
+
+// Función para generar un ID único para cada tarea
+function generarIdUnico() {
+    // Esta es una implementación simple para generar IDs únicos,
+    // pero en un entorno de producción deberías utilizar una solución más robusta
+    return Date.now();
+}
+
+// Función para agregar una nueva tarea a la lista
+function agregarTarea() {
+    var nuevaTareaInput = document.getElementById("nuevaTareaInput");
+    var descripcion = nuevaTareaInput.value.trim();
+
+    if (descripcion !== "") {
+        var nuevaTarea = new Tarea(generarIdUnico(), descripcion, false);
+        // Agregar la nueva tarea a la lista
+        mostrarTareaEnLista(nuevaTarea);
+        nuevaTareaInput.value = ""; // Limpiar el campo de entrada después de agregar la tarea
+    }
+}
+
+// Función para mostrar una tarea en la lista
+function mostrarTareaEnLista(tarea) {
+    var listaTareas = document.getElementById("listaTareas");
+    var nuevaTareaElemento = document.createElement("li");
+    nuevaTareaElemento.textContent = tarea.descripcion;
+    listaTareas.appendChild(nuevaTareaElemento);
+}
+
