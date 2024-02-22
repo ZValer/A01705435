@@ -1,0 +1,41 @@
+/* Estilos.css */
+
+body {
+    background-color: #D1C4E9; 
+}
+
+div {
+    color: #757575;
+}
+
+header {
+    background-color: #512DA8;
+    color: #ffffff; 
+    padding: 20px;
+    text-align: center;
+}
+
+#ejercicios {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #FFFFFF;
+}
+
+#preguntas {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #FFFFFF; 
+}
+
+h2 {
+    color: #673AB7; 
+}
+
+h3, h4, a {
+    color: #009688; 
+}
+
+table {
+    color:#ffffff;
+    background-color:#009688;
+}
