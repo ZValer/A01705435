@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Organizador con frameworks</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-   
+    <link rel="stylesheet" href="estilos.css">
   </head>
 
   <body>
@@ -66,6 +66,27 @@
         </div>
       </div>
     </nav>
+
+    <!--Menú a la izquierda-->
+    <aside class="menu">
+      <p class="menu-label">
+        General
+      </p>
+      <ul class="menu-list">
+        <li><a class="is-active">Tareas</a></li>
+      </ul>
+      <p class="menu-label">
+        Información
+      </p>
+      <ul class="menu-list">
+        <li>
+          <a>Preguntas</a>
+          <ul>
+            <li><a>Frameworks de estilo</a></li>
+          </ul>
+        
+      </ul>
+    </aside>
   
   <section class="section">
     <!--Título y subtítulo-->
@@ -77,7 +98,111 @@
         Con frameworks de estilo <strong>Bulma</strong>!
       </p>
     </div>
+
+    <!--Cards-->
+    <section class="section">
+      <div class="container">
+          <div class="columns">
+              <div class="column">
+                  <div class="card">
+                      <div class="card-content">
+                        <div class="media">
+                          <div class="media-content">
+                            <p class="title is-6">Tarea 1</p>
+                          </div>
+                        </div>
+                    
+                        <div class="content">
+                          Fecha: 00/00/000<br>
+                          Descripción de la tarea<br><br>
+                          <button class="boton_modificar button is-link is-light is-small">Modificar</button> <br> <br>
+                         
+                          <button class="boton_eliminar button is-danger is-light is-small">Eliminar</button>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-content">
+                          <p class="title is-6">Tarea 2</p>
+                        </div>
+                      </div>
+                  
+                      <div class="content">
+                        Fecha: 00/00/000<br>
+                        Descripción de la tarea<br><br>
+                        <button class="boton_modificar button is-link is-light is-small">Modificar</button> <br> <br>
+                       
+                        <button class="boton_eliminar button is-danger is-light is-small">Eliminar</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="column">
+                  <div class="card">
+                      <div class="card-content">
+                        <div class="media">
+                          <div class="media-content">
+                            <p class="title is-6">Tarea 3</p>
+                          </div>
+                        </div>
+                    
+                        <div class="content">
+                          Fecha: 00/00/000<br>
+                          Descripción de la tarea<br><br>
+                          <button class="boton_modificar button is-link is-light is-small">Modificar</button> <br> <br>
+                         
+                          <button class="boton_eliminar button is-danger is-light is-small">Eliminar</button>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              
+              <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-content">
+                          <p class="title is-6">Tarea 4</p>
+                        </div>
+                      </div>
+                  
+                      <div class="content">
+                        Fecha: 00/00/000<br>
+                        Descripción de la tarea<br><br>
+                        <button class="boton_modificar button is-link is-light is-small">Modificar</button> <br> <br>
+                       
+                        <button class="boton_eliminar button is-danger is-light is-small">Eliminar</button>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>   
+      </div>
+      <div>
+        <br>
+        <button class="agregarTarea button is-outlined is-link is-large">Agregar tarea</button>
+      </div>
+      
+    </section>
+    <section id="preguntas">
+      
+      <p>
+        <ul>
+          <li>
+            Describe material design<br><br>
+            Material Design es un sistema de diseño desarrollado por Google que se utiliza para crear interfaces de usuario coherentes y atractivas en diversas plataformas, incluyendo aplicaciones móviles, sitios web y otros productos digitales. Se basa en principios de diseño como la materialidad, la profundidad, el movimiento y la usabilidad táctil para crear una experiencia de usuario intuitiva y consistente.<br>
+            En el contexto de las páginas web, Material Design proporciona pautas y componentes que los diseñadores y desarrolladores pueden utilizar para crear sitios web que sean visualmente atractivos y fáciles de usar. Esto incluye elementos como tipografía, iconografía, paletas de colores, sombras y animaciones, entre otros. Al seguir las directrices de Material Design, los sitios web pueden lograr una apariencia moderna y coherente con otros productos de Google, lo que puede mejorar la experiencia del usuario y la facilidad de navegación.
+          
+          </li>
+          
+        </ul>
+      </p>
+    </section>
   </section>
-  
+
   </body>
 </html>

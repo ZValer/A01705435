@@ -1,0 +1,24 @@
+.menu{
+    float:left;
+    margin-right:20px;
+    padding:15px;
+    height:1000px;
+    background-color:rgba(222, 222, 225, 0.333);
+}
+
+.boton_eliminar{
+    left:70%;
+    bottom:85%;
+}
+
+.agregarTarea{
+    left:65%;
+}
+
+#preguntas{
+    color:white;
+    padding:25px;
+    background-color: #262f5e;
+    margin-left:20%;
+    margin-right:5%;
+}
