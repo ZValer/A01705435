@@ -1,15 +1,10 @@
-
 // Pequeña aplicación web que al enviar una petición al servidor, devuelve
-// la página del laboratorios.
+// la página de laboratorio.
+// esta responde a rutas diferentes
 
-const http = require('http');
-const server = http.createServer( (request, response) => {    
-    console.log(request.url);
-    // Si la url es igual a la raíz
-    if (request.url == "/") {
-    response.setHeader('Content-Type', 'text/html');
-    response.write(`
-    <!DOCTYPE html>
+//Definir constantes
+const html_header = `
+<!DOCTYPE html>
     <html lang="es">
         <head>
             <meta charset="utf-8">
@@ -104,8 +99,17 @@ const server = http.createServer( (request, response) => {
                 </div>
             </div>
             </nav>
+`
+
+const http = require('http');
+const server = http.createServer( (request, response) => {    
+    console.log(request.url);
+    // Si la url es igual a la raíz
+    if (request.url == "/") {
+    response.setHeader('Content-Type', 'text/html');
+    response.write(html_header);
+    response.write(`
             <!--------------------------------------------------------------------------------------------------------->
-            
             <!--Imagenes para el título en dos columnas-->
             <div class="container-fluid text-center">
             <div class="row justify-content-center no-gutters">
@@ -412,6 +416,9 @@ const server = http.createServer( (request, response) => {
     
   } else {
     response.statusCode = 404;
+    response.setHeader('Content-Type', 'text/html');
+    response.write(html_header);
+    response.write(`<h2 class="title"><br>Esta ruta no existe...</h2>`);
     response.end();
   }
 });
