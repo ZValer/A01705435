@@ -2,9 +2,11 @@
 // Pequeña aplicación web que al enviar una petición al servidor, devuelve
 // la página del laboratorios.
 
-const http = require('http');   
-const server = http.createServer( (request, response) => { 
+const http = require('http');
+const server = http.createServer( (request, response) => {    
     console.log(request.url);
+    // Si la url es igual a la raíz
+    if (request.url == "/") {
     response.setHeader('Content-Type', 'text/html');
     response.write(`
     <!DOCTYPE html>
@@ -374,34 +376,45 @@ const server = http.createServer( (request, response) => {
 
             <!--------------------------------------------------------------------------------------------------------->
             <!--Include bootstrap js to include popovers or dropdowns-->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-            
+             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
             <script>
-            <!-- Aqui iría el script -->
+            // Función para agregar un producto al carrito
+            function agregarAlCarrito(nombre, precio) {
+                // Crear una nueva fila en el carrito
+                var fila = document.createElement('tr');
+                fila.innerHTML = '<td>' + nombre + '</td>' +
+                                '<td>$' + precio + '</td>';
+                // Agregar la fila al cuerpo de la tabla del carrito
+                document.getElementById('carrito-body').appendChild(fila);
+
+                // Actualizar el precio total
+                var precioTotal = parseFloat(document.getElementById('precio-total').innerText.replace('$', ''));
+                precioTotal += parseFloat(precio);
+                document.getElementById('precio-total').innerText = '$' + precioTotal.toFixed(2);
+            }
+
+            // Añadir eventos click a los botones de añadir
+            var botonesAgregar = document.querySelectorAll('.botonAñadir');
+            botonesAgregar.forEach(function(boton) {
+                boton.addEventListener('click', function() {
+                    var card = this.closest('.card');
+                    var nombre = card.querySelector('.card-title').innerText;
+                    var precio = card.querySelector('.card-text').innerText.replace('$', '');
+                    agregarAlCarrito(nombre, precio);
+                });
+            });
+
             </script>
         </body>
     </html>
-
     `);
     response.end();
+    
+  } else {
+    response.statusCode = 404;
+    response.end();
+  }
 });
 
-// Array para almacenar los fragmentos de datos recibidos en la solicitud.
-const datos = [];
-// Se agrega un listener para cada vez que se reciben datos.
-request.on('data', (dato) => {
-    // Se registra en la consola el fragmento de datos recibido y se agrega al array
-    console.log(dato);
-    datos.push(dato);
-});
-
-// Los datos llegan en código ASCII: datos=pekka & ataque=10…
-// Luego se traducen toString();
-return request.on('end', () => {
-    const datos_completos = Buffer.concat(datos).toString();
-    console.log(datos_completos);
-    const nuevo_dato = datos_completos.split('=')[1];
-    return response.end();
-});
 
 server.listen(3000);
