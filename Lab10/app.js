@@ -75,30 +75,71 @@ const html_header = `
                 <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 200px;">
                     <li class="nav-item">
-                    <!--Este está seleccionado-->
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link" aria-current="page" href="/">Inicio</a>
                     </li>
+                    </li>
+                    
                     <!--Dropdown button-->
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Productos
+                    <a class="nav-link dropdown-toggle" href="catalogo" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Catálogo
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Pantalones</a></li>
-                        <li><a class="dropdown-item" href="#">Blusas</a></li>
+                        <li><a class="dropdown-item" href="catalogo">Ropa</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Relojes</a></li>
+                        <li><a class="dropdown-item" href="catalogo">Accesorios</a></li>
                     </ul>
-                    </li>
-                    <!--Sección desabilitada-->
+
                     <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Link</a>
+                    <a class="nav-link" aria-current="page" href="carrito">Carrito</a>
                     </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="agregarProducto">Agregar Producto</a>
+                    </li>
+                    
                 </ul>
                 
                 </div>
             </div>
             </nav>
+`
+//<!--------------------------------------------------------------------------------------------------------->
+const html_javascript = `
+    <!--------------------------------------------------------------------------------------------------------->
+    <!--Include bootstrap js to include popovers or dropdowns-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+    // Función para agregar un producto al carrito
+    function agregarAlCarrito(nombre, precio) {
+        // Crear una nueva fila en el carrito
+        var fila = document.createElement('tr');
+        fila.innerHTML = '<td>' + nombre + '</td>' +
+                        '<td>$' + precio + '</td>';
+        // Agregar la fila al cuerpo de la tabla del carrito
+        document.getElementById('carrito-body').appendChild(fila);
+
+        // Actualizar el precio total
+        var precioTotal = parseFloat(document.getElementById('precio-total').innerText.replace('$', ''));
+        precioTotal += parseFloat(precio);
+        document.getElementById('precio-total').innerText = '$' + precioTotal.toFixed(2);
+    }
+
+    // Añadir eventos click a los botones de añadir
+    var botonesAgregar = document.querySelectorAll('.botonAñadir');
+    botonesAgregar.forEach(function(boton) {
+        boton.addEventListener('click', function() {
+            var card = this.closest('.card');
+            var nombre = card.querySelector('.card-title').innerText;
+            var precio = card.querySelector('.card-text').innerText.replace('$', '');
+            agregarAlCarrito(nombre, precio);
+        });
+    });
+
+    </script>
+    </body>
+    </html>
+
 `
 
 const http = require('http');
@@ -224,7 +265,7 @@ const server = http.createServer( (request, response) => {
             <hr class="featurette-divider">
 
             <!--Productos en venta sección de ropa-->
-            <h1 class="featurette-heading fw-normal lh-1">Ropa</h1> <br><br>
+            <h1 id="catalogoRopa" class="featurette-heading fw-normal lh-1">Ropa</h1> <br><br>
 
             <div class="row">
             <!--Columna-->
@@ -305,7 +346,7 @@ const server = http.createServer( (request, response) => {
             <hr class="featurette-divider">
 
             <!--Productos en venta sección de accesorios-->
-            <h1 class="featurette-heading fw-normal lh-1">Accesorios</h1> <br><br>
+            <h1 id="catalogoAccesorios" class="featurette-heading fw-normal lh-1">Accesorios</h1> <br><br>
 
             <div class="row">
             <!--Columna-->
@@ -376,49 +417,40 @@ const server = http.createServer( (request, response) => {
                     <td id="precio-total">$0.00</td>
                 </tr>
             </tfoot>
-            </table>
-
-            <!--------------------------------------------------------------------------------------------------------->
-            <!--Include bootstrap js to include popovers or dropdowns-->
-             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-            <script>
-            // Función para agregar un producto al carrito
-            function agregarAlCarrito(nombre, precio) {
-                // Crear una nueva fila en el carrito
-                var fila = document.createElement('tr');
-                fila.innerHTML = '<td>' + nombre + '</td>' +
-                                '<td>$' + precio + '</td>';
-                // Agregar la fila al cuerpo de la tabla del carrito
-                document.getElementById('carrito-body').appendChild(fila);
-
-                // Actualizar el precio total
-                var precioTotal = parseFloat(document.getElementById('precio-total').innerText.replace('$', ''));
-                precioTotal += parseFloat(precio);
-                document.getElementById('precio-total').innerText = '$' + precioTotal.toFixed(2);
-            }
-
-            // Añadir eventos click a los botones de añadir
-            var botonesAgregar = document.querySelectorAll('.botonAñadir');
-            botonesAgregar.forEach(function(boton) {
-                boton.addEventListener('click', function() {
-                    var card = this.closest('.card');
-                    var nombre = card.querySelector('.card-title').innerText;
-                    var precio = card.querySelector('.card-text').innerText.replace('$', '');
-                    agregarAlCarrito(nombre, precio);
-                });
-            });
-
-            </script>
-        </body>
-    </html>
+            </table>  
     `);
+    response.write(html_javascript);  
     response.end();
     
-  } else {
+  } 
+  else if (request.url == "/catalogo") {
+    response.setHeader('Content-Type', 'text/html');
+    response.write(html_header);
+    response.write(`<h2 class="title"><br>Catálogo...</h2>`);
+    response.write(html_javascript);  
+    response.end();
+  }
+  else if (request.url == "/carrito") {
+    response.setHeader('Content-Type', 'text/html');
+    response.write(html_header);
+    response.write(`<h2 class="title"><br>Carrito de compras...</h2>`);
+    response.write(html_javascript);  
+    response.end();
+  }
+  else if (request.url == "/agregarProducto") {
+    response.setHeader('Content-Type', 'text/html');
+    response.write(html_header);
+    response.write(`<h2 class="title"><br>Agregar nuevos productos aqui...</h2>`);
+    response.write(html_javascript);  
+    response.end();
+  }
+    
+    else {
     response.statusCode = 404;
     response.setHeader('Content-Type', 'text/html');
     response.write(html_header);
     response.write(`<h2 class="title"><br>Esta ruta no existe...</h2>`);
+    response.write(html_javascript);  
     response.end();
   }
 });
