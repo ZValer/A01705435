@@ -107,52 +107,42 @@ const html_javascript = `
     <!--Include bootstrap js to include popovers or dropdowns-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-    // Función para agregar un producto al carrito
-    // Estado inicial del carrito
-    var carrito = [];
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtenemos todos los botones de añadir
+        const botonesAñadir = document.querySelectorAll('.botonAñadir');
 
-    // Función para agregar un producto al carrito
-    function agregarAlCarrito(nombre, precio) {
-        // Agregar el producto al estado del carrito
-        carrito.push({ nombre: nombre, precio: parseFloat(precio) });
-        
-        // Actualizar la visualización del carrito
-        actualizarCarrito();
-    }
+        // Recorremos los botones y añadimos un event listener a cada uno
+        botonesAñadir.forEach(function (boton) {
+            boton.addEventListener('click', function () {
+                // Obtenemos el nombre del producto y su precio
+                const nombreProducto = boton.parentElement.querySelector('.card-title').innerText;
+                const precioProducto = parseFloat(boton.parentElement.querySelector('#precioProducto_barbaro').innerText);
 
-    // Función para actualizar la visualización del carrito
-    function actualizarCarrito() {
-        // Limpiar el cuerpo de la tabla del carrito
-        var carritoBody = document.getElementById('carrito-body');
-        carritoBody.innerHTML = '';
+                // Creamos un nuevo elemento de fila para la tabla del carrito
+                const fila = document.createElement('tr');
+                fila.innerHTML = 
+                    '<td>' + nombreProducto + '</td>' +
+                    '<td>$' + precioProducto.toFixed(2) + '</td>';
 
-        // Iterar sobre los productos en el carrito y agregarlos a la tabla
-        var precioTotal = 0;
-        carrito.forEach(function(producto) {
-            var fila = document.createElement('tr');
-            fila.innerHTML = '<td>' + producto.nombre + '</td>' +
-                            '<td>$' + producto.precio.toFixed(2) + '</td>';
-            carritoBody.appendChild(fila);
-            precioTotal += producto.precio;
+
+                // Añadimos la fila al cuerpo de la tabla del carrito
+                document.querySelector('#carrito-body').appendChild(fila);
+
+                // Actualizamos el precio total
+                const precioTotal = calcularPrecioTotal();
+                document.querySelector('#precio-total').innerText = '$' + precioTotal.toFixed(2);
+            });
         });
 
-        // Actualizar el precio total
-        document.getElementById('precio-total').innerText = '$' + precioTotal.toFixed(2);
-    }
-
-    // Obtener todos los botones de añadir del catálogo
-    var botonesAgregar = document.querySelectorAll('.botonAñadir');
-
-    // Añadir eventos click a los botones de añadir
-    botonesAgregar.forEach(function(boton) {
-        boton.addEventListener('click', function() {
-            var card = this.closest('.card');
-            var nombre = card.querySelector('.card-title').innerText;
-            var precio = card.querySelector('.card-text').innerText.replace('$', '');
-            agregarAlCarrito(nombre, precio);
-        });
+        // Función para calcular el precio total del carrito
+        function calcularPrecioTotal() {
+            let precioTotal = 0;
+            document.querySelectorAll('#carrito-body tr').forEach(function (fila) {
+                precioTotal += parseFloat(fila.querySelector('td:nth-child(2)').innerText.slice(1));
+            });
+            return precioTotal;
+        }
     });
-
 
     </script>
     </body>
@@ -336,7 +326,7 @@ const server = http.createServer( (request, response) => {
     response.write(html_header);
     response.write(`<br> <h1 id="catalogoRopa" class="featurette-heading fw-normal lh-1">Catálogo</h1> <br>
     `);
-    ///////
+    // Generar tarjetas de productos
     response.write(`
     <!--Linea divisora-->
     <hr class="featurette-divider">
@@ -368,8 +358,9 @@ const server = http.createServer( (request, response) => {
     response.write(`</div>
 
     `);
-    //////////
-    
+
+    //--------------------------------------------------------------------//
+    //Carrito de compras
     response.write(`
         <!--Linea divisora-->
         <hr class="featurette-divider">
