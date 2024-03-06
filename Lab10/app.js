@@ -86,13 +86,10 @@ const html_header = `
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="catalogo">Ropa</a></li>
-                        <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="catalogo">Accesorios</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="catalogo">Carrito de compras</a></li>
                     </ul>
-
-                    <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="carrito">Carrito</a>
-                    </li>
 
                     <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="agregarProducto">Agregar Producto</a>
@@ -111,22 +108,42 @@ const html_javascript = `
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
     // Función para agregar un producto al carrito
+    // Estado inicial del carrito
+    var carrito = [];
+
+    // Función para agregar un producto al carrito
     function agregarAlCarrito(nombre, precio) {
-        // Crear una nueva fila en el carrito
-        var fila = document.createElement('tr');
-        fila.innerHTML = '<td>' + nombre + '</td>' +
-                        '<td>$' + precio + '</td>';
-        // Agregar la fila al cuerpo de la tabla del carrito
-        document.getElementById('carrito-body').appendChild(fila);
+        // Agregar el producto al estado del carrito
+        carrito.push({ nombre: nombre, precio: parseFloat(precio) });
+        
+        // Actualizar la visualización del carrito
+        actualizarCarrito();
+    }
+
+    // Función para actualizar la visualización del carrito
+    function actualizarCarrito() {
+        // Limpiar el cuerpo de la tabla del carrito
+        var carritoBody = document.getElementById('carrito-body');
+        carritoBody.innerHTML = '';
+
+        // Iterar sobre los productos en el carrito y agregarlos a la tabla
+        var precioTotal = 0;
+        carrito.forEach(function(producto) {
+            var fila = document.createElement('tr');
+            fila.innerHTML = '<td>' + producto.nombre + '</td>' +
+                            '<td>$' + producto.precio.toFixed(2) + '</td>';
+            carritoBody.appendChild(fila);
+            precioTotal += producto.precio;
+        });
 
         // Actualizar el precio total
-        var precioTotal = parseFloat(document.getElementById('precio-total').innerText.replace('$', ''));
-        precioTotal += parseFloat(precio);
         document.getElementById('precio-total').innerText = '$' + precioTotal.toFixed(2);
     }
 
-    // Añadir eventos click a los botones de añadir
+    // Obtener todos los botones de añadir del catálogo
     var botonesAgregar = document.querySelectorAll('.botonAñadir');
+
+    // Añadir eventos click a los botones de añadir
     botonesAgregar.forEach(function(boton) {
         boton.addEventListener('click', function() {
             var card = this.closest('.card');
@@ -135,6 +152,7 @@ const html_javascript = `
             agregarAlCarrito(nombre, precio);
         });
     });
+
 
     </script>
     </body>
@@ -404,18 +422,11 @@ const server = http.createServer( (request, response) => {
             </div>
             <!--/card-->
         </div>
-            
-        </div>     
-    `);
+        
+        <!--------------------------------------------------------------------------------------------------------->
+        <!--Linea divisora-->
+        <hr class="featurette-divider">
 
-    response.write(html_javascript);  
-    response.end();
-  }
-  // Si la url es igual a /carrito
-  else if (request.url == "/carrito") {
-    response.setHeader('Content-Type', 'text/html');
-    response.write(html_header);
-    response.write(`
         <!--Carrito de compras-->
         <br><h2 class="featurette-heading fw-normal lh-1">Carrito de compras</h2> <br><br>
 
@@ -435,12 +446,13 @@ const server = http.createServer( (request, response) => {
                 <td id="precio-total">$0.00</td>
             </tr>
         </tfoot>
-        </table> 
+        </table>   
     `);
 
     response.write(html_javascript);  
     response.end();
   }
+  
   // Si la url es igual a /agregarProducto
   else if (request.url == "/agregarProducto") {
     response.setHeader('Content-Type', 'text/html');
