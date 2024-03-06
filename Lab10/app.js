@@ -159,6 +159,51 @@ const html_javascript = `
     </html>
 
 `
+// Productos de ropa y accesorios del catálogo
+const productosCatalogo = [
+    {
+        clase: "Camisa blanca", 
+        precioProducto: 449, 
+        imagen: "https://i.pinimg.com/474x/6d/f6/d5/6df6d5b1e9cd4167ad37b7a8557c1693.jpg",
+    },
+    {
+        clase: "Pantalón de vestir azul marino", 
+        precioProducto: 749, 
+        imagen: "https://i.pinimg.com/474x/6f/af/e1/6fafe1996efa520a77372f8e01060ef6.jpg",
+    },
+    {
+        clase: "Traje negro", 
+        precioProducto: 1599, 
+        imagen: "https://i.pinimg.com/474x/8c/e5/29/8ce529af57d3bc843755873c106d6361.jpg",
+    },
+    {
+        clase: "Pantalón de vestir beige", 
+        precioProducto: 699, 
+        imagen: "https://i.pinimg.com/474x/4c/6b/5a/4c6b5ad613f217475971fa2aaa70a813.jpg",
+    },
+    {
+        clase: "Suéter blanco", 
+        precioProducto: 449, 
+        imagen: "https://i.pinimg.com/474x/34/52/99/34529926f70b82e8e642df369aac3138.jpg",
+    },
+    {
+        clase: "Anillos y collar dorados", 
+        precioProducto: 1200, 
+        imagen: "https://i.pinimg.com/474x/2b/00/c7/2b00c73c1f63dfef89a5605304f0337d.jpg",
+    },
+    {
+        clase: "Pulsera dorada", 
+        precioProducto: 299, 
+        imagen: "https://i.pinimg.com/474x/66/22/a0/6622a0ff4b63f612a432a8c7f2ff3cf1.jpg",
+    },
+    {
+        clase: "Conjunto anillos", 
+        precioProducto: 399, 
+        imagen: "https://i.pinimg.com/474x/d9/09/94/d909945d79dbd1affac05cca83d099d0.jpg",
+    }
+    
+   
+];
 
 const http = require('http');
 const server = http.createServer( (request, response) => {    
@@ -291,139 +336,41 @@ const server = http.createServer( (request, response) => {
     response.write(html_header);
     response.write(`<br> <h1 id="catalogoRopa" class="featurette-heading fw-normal lh-1">Catálogo</h1> <br>
     `);
+    ///////
     response.write(`
-        <!--Linea divisora-->
-        <hr class="featurette-divider">
+    <!--Linea divisora-->
+    <hr class="featurette-divider">
 
-        <!--Productos en venta sección de ropa-->
-        <h1 id="catalogoRopa" class="featurette-heading fw-normal lh-1">Ropa</h1> <br><br>
+    <!--Productos en venta-->
 
-        <div class="row">
-        <!--Columna-->
-        <div class="col-md-2 col-sm-4 card-producto">
-            <!--Card-->
-            <div class="card">
-            <img src="https://i.pinimg.com/474x/6d/f6/d5/6df6d5b1e9cd4167ad37b7a8557c1693.jpg" class="card-img-top" alt="Camisa blanca">
-            <div class="card-body">
-                <h5 class="card-title">Camisa blanca</h5>
-                <p class="card-text">$449</p>
-                <button class="btn btn-dark botonAñadir">Añadir</button>
-
-            </div>
-            </div>
-            <!--/card-->
-        </div>
-        <!--Columna-->
-        <div class="col-md-2 col-sm-4">
-            <!--Card-->
-            <div class="card" >
-            <img src="https://i.pinimg.com/474x/6f/af/e1/6fafe1996efa520a77372f8e01060ef6.jpg" class="card-img-top" alt="Pantalón de vestir azul marino">
-            <div class="card-body">
-                <h5 class="card-title">Pantalón de vestir azul marino</h5>
-                <p class="card-text">$ 749</p>
-                <button class="btn btn-dark botonAñadir">Añadir</button>
-
-            </div>
-            </div>
-            <!--/card-->
-        </div>
-        <!--Columna-->
-        <div class="col-md-2 col-sm-4">
-            <!--Card-->
-            <div class="card" >
-            <img src="https://i.pinimg.com/474x/8c/e5/29/8ce529af57d3bc843755873c106d6361.jpg" class="card-img-top" alt="Traje negro">
-            <div class="card-body">
-                <h5 class="card-title">Traje negro</h5>
-                <p class="card-text">$ 1599</p>
-                <button class="btn btn-dark botonAñadir">Añadir</button>
-
-            </div>
-            </div>
-            <!--/card-->
-        </div>
-        <!--Columna-->
-        <div class="col-md-2 col-sm-4">
-            <!--Card-->
-            <div class="card" >
-            <img src="https://i.pinimg.com/474x/4c/6b/5a/4c6b5ad613f217475971fa2aaa70a813.jpg" class="card-img-top" alt="Pantalón de vestir beige">
-            <div class="card-body">
-                <h5 class="card-title">Pantalón de vestir beige</h5>
-                <p class="card-text">$ 699</p>
-                <button class="btn btn-dark botonAñadir">Añadir</button>
-
-            </div>
-            </div>
-            <!--/card-->
-        </div>
-        <!--Columna-->
-        <div class="col-md-2 col-sm-4">
-            <!--Card-->
-            <div class="card" >
-            <img src="https://i.pinimg.com/474x/34/52/99/34529926f70b82e8e642df369aac3138.jpg" class="card-img-top" alt="Sueter blanco">
-            <div class="card-body">
-                <h5 class="card-title">Sueter blanco</h5>
-                <p class="card-text">$ 449</p>
-                <button class="btn btn-dark botonAñadir">Añadir</button>
-
-            </div>
-            </div>
-            <!--/card-->
-        </div>
+    <div class="row">`
+    );
+      let html_productosCatalogo = '';
+      for (let productoCatalogo of productosCatalogo) {
+          html_productosCatalogo += `
+          <!--Columna-->
+            <div class="col-md-2 col-sm-4 card-producto">
+                <!--Card-->
+                <div class="card">
+                <img id="imagen_barbaro" src="${productoCatalogo.imagen}" class="card-img-top" alt="Imagen de ${productoCatalogo.clase}">
+                <div class="card-body">
+                    <h5 class="card-title">${productoCatalogo.clase}</h5>
+                    <p class="card-text">Precio: $<span id="precioProducto_barbaro">${productoCatalogo.precioProducto}</span></p>
+                    <button id="boton_levelear_barbaro" class="btn btn-dark botonAñadir">Añadir</button>
             
-        </div>
-
-        <!--------------------------------------------------------------------------------------------------------->
-        <!--Linea divisora-->
-        <hr class="featurette-divider">
-
-        <!--Productos en venta sección de accesorios-->
-        <h1 id="catalogoAccesorios" class="featurette-heading fw-normal lh-1">Accesorios</h1> <br><br>
-
-        <div class="row">
-        <!--Columna-->
-        <div class="col-md-2 col-sm-4">
-            <!--Card-->
-            <div class="card" >
-            <img src="https://i.pinimg.com/474x/2b/00/c7/2b00c73c1f63dfef89a5605304f0337d.jpg" class="card-img-top" alt="Anillos y collar dorados">
-            <div class="card-body">
-                <h5 class="card-title"> Anillos y collar dorados</h5>
-                <p class="card-text">$ 1200</p>
-                <button class="btn btn-dark botonAñadir">Añadir</button>
-
+                </div>
+                </div>
+                <!--/card-->
             </div>
-            </div>
-            <!--/card-->
-        </div>
-        <!--Columna-->
-        <div class="col-md-2 col-sm-4">
-            <!--Card-->
-            <div class="card" >
-            <img src="https://i.pinimg.com/474x/66/22/a0/6622a0ff4b63f612a432a8c7f2ff3cf1.jpg" class="card-img-top" alt="Pulsera dorada">
-            <div class="card-body">
-                <h5 class="card-title">Pulsera dorada</h5>
-                <p class="card-text">$ 299</p>
-                <button class="btn btn-dark botonAñadir">Añadir</button>
+          `;
+      }
+    response.write(html_productosCatalogo);
+    response.write(`</div>
 
-            </div>
-            </div>
-            <!--/card-->
-        </div>
-        <!--Columna-->
-        <div class="col-md-2 col-sm-4">
-            <!--Card-->
-            <div class="card" >
-            <img src="https://i.pinimg.com/474x/d9/09/94/d909945d79dbd1affac05cca83d099d0.jpg" class="card-img-top" alt="Conjunto anillos">
-            <div class="card-body">
-                <h5 class="card-title">Conjunto anillos</h5>
-                <p class="card-text">$ 399</p>
-                <button class="btn btn-dark botonAñadir">Añadir</button>
-
-            </div>
-            </div>
-            <!--/card-->
-        </div>
-        
-        <!--------------------------------------------------------------------------------------------------------->
+    `);
+    //////////
+    
+    response.write(`
         <!--Linea divisora-->
         <hr class="featurette-divider">
 
