@@ -150,293 +150,298 @@ const server = http.createServer( (request, response) => {
     response.setHeader('Content-Type', 'text/html');
     response.write(html_header);
     response.write(`
-            <!--------------------------------------------------------------------------------------------------------->
-            <!--Imagenes para el título en dos columnas-->
-            <div class="container-fluid text-center">
-            <div class="row justify-content-center no-gutters">
-                <div class="col contenedor-imagen-titulo">
-                    <img src="https://i.pinimg.com/474x/12/e2/4d/12e24d187364a8b7c844750f9cfe4b90.jpg" class="img-fluid img-fluid-inicio" alt="Closeup arete">
-                    </div>
-                <div class="col contenedor-imagen-titulo">
-                    <img src="https://i.pinimg.com/474x/9b/e6/46/9be646dc47ba4783ff92f5a5365c3495.jpg" class="img-fluid img-fluid-inicio" alt="Closeup atrás manos">
+        <!--------------------------------------------------------------------------------------------------------->
+        <!--Imagenes para el título en dos columnas-->
+        <div class="container-fluid text-center">
+        <div class="row justify-content-center no-gutters">
+            <div class="col contenedor-imagen-titulo">
+                <img src="https://i.pinimg.com/474x/12/e2/4d/12e24d187364a8b7c844750f9cfe4b90.jpg" class="img-fluid img-fluid-inicio" alt="Closeup arete">
                 </div>
+            <div class="col contenedor-imagen-titulo">
+                <img src="https://i.pinimg.com/474x/9b/e6/46/9be646dc47ba4783ff92f5a5365c3495.jpg" class="img-fluid img-fluid-inicio" alt="Closeup atrás manos">
             </div>
-            </div>
-            
-            <!--Título-->
-            <h2 class="titulo-sobre-imagenes">STYLEṨTREAM</h2>
-            
-            <!--------------------------------------------------------------------------------------------------------->
-            <!--Bienvenida a la página--> 
-
-            <div class="row">
-            <!--Primera columna Bienvenida-->
-            <div class="col-md-8 col-sm-12">
-                <div id="info-pag">
-                    <h2 class="featurette-heading fw-normal lh-1">Bienvenido!</h2> <br><br>
-                    <p class="lead">
-                        <span class="text-body-secondary">Stylestream,</span>
-                        tu destino favorito para sumergirte en el mundo fascinante de la moda online! 
-                        La moda es más que ropa: es una corriente de estilo en constante evolución que te invita a 
-                        explorar y expresarte.<br>
-                        En Stylestream, fusionamos la elegancia atemporal con las últimas tendencias, ofreciéndote 
-                        una experiencia de compra única donde cada prenda cuenta una historia.<br><br>
-                        <span class="cursivas">Navega a través del estilo con Stylestream.</span>
-                    </p> 
-                </div>
-            </div>
-            <!--Otra columna-->
-            <!--Carrusel de imágenes autodeslizante-->
-            <div class="col-md-4 col-sm-12 order-md-2">
-                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="https://i.pinimg.com/474x/a4/95/5c/a4955cf125c4e7758045c68f5b63e7a3.jpg" class="d-block w-100" alt="martini">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://i.pinimg.com/474x/d8/f0/76/d8f076fcf6e35223d617c9a2d66b3df0.jpg" class="d-block w-100" alt="tenis">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://i.pinimg.com/474x/24/9b/69/249b6943293ab129cc66753d2d6aa722.jpg" class="d-block w-100" alt="traje gris">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-            <!-- /carrusel -->
-            </div>
+        </div>
+        </div>
         
-            <!--------------------------------------------------------------------------------------------------------->
-            <!--Linea divisora-->
-            <hr class="featurette-divider">
-            <!--Info con imagen a la izquierda-->
-            <div class="row featurette">
-            <div class="col-md-7 order-md-2"> <!--orden-md-2 indica que va en la segunda columna-->
-                <div id="info-pag">
+        <!--Título-->
+        <h2 class="titulo-sobre-imagenes">STYLEṨTREAM</h2>
+        
+        <!--------------------------------------------------------------------------------------------------------->
+        <!--Bienvenida a la página--> 
+
+        <div class="row">
+        <!--Primera columna Bienvenida-->
+        <div class="col-md-8 col-sm-12">
+            <div id="info-pag">
+                <h2 class="featurette-heading fw-normal lh-1">Bienvenido!</h2> <br><br>
                 <p class="lead">
-                    <h2><span class="text-body-secondary">Ropa</span></h2> <br><br>
-                    Explora la sección de ropa! 
-                    Nuestra amplia selección de ropa te ofrece la oportunidad de expresar tu personalidad y destacar tu estilo. 
-                    Descubre prendas de alta calidad con cortes y diseños que se adaptan a todas las ocasiones, 
-                    todo cuidadosamente seleccionado para satisfacer tus gustos y necesidades.
-                    
+                    <span class="text-body-secondary">Stylestream,</span>
+                    tu destino favorito para sumergirte en el mundo fascinante de la moda online! 
+                    La moda es más que ropa: es una corriente de estilo en constante evolución que te invita a 
+                    explorar y expresarte.<br>
+                    En Stylestream, fusionamos la elegancia atemporal con las últimas tendencias, ofreciéndote 
+                    una experiencia de compra única donde cada prenda cuenta una historia.<br><br>
+                    <span class="cursivas">Navega a través del estilo con Stylestream.</span>
                 </p> 
-                </div>
             </div>
-            <!--Imagen circular-->
-            <div class="col-md-4 order-md-1"> <!--Primera columna-->
-                <div class="d-flex justify-content-center align-items-center">
-                <img src="https://i.pinimg.com/474x/68/f5/53/68f5535df68857ff0d3dde6adeaeee8a.jpg" class="rounded-circle img-fluid" alt="Imagen circular closeup outfit" style="width: 400px; height: 400px;">
+        </div>
+        <!--Otra columna-->
+        <!--Carrusel de imágenes autodeslizante-->
+        <div class="col-md-4 col-sm-12 order-md-2">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://i.pinimg.com/474x/a4/95/5c/a4955cf125c4e7758045c68f5b63e7a3.jpg" class="d-block w-100" alt="martini">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/474x/d8/f0/76/d8f076fcf6e35223d617c9a2d66b3df0.jpg" class="d-block w-100" alt="tenis">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/474x/24/9b/69/249b6943293ab129cc66753d2d6aa722.jpg" class="d-block w-100" alt="traje gris">
+                    </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            </div>
-            <!--------------------------------------------------------------------------------------------------------->
-            <!--Linea divisora-->
-            <hr class="featurette-divider">
-
-            <!--Información de la página con imagen a la derecha-->
-            <div class="row">
-            <div class="col-md-7 col-sm-12">
-                <div id="info-pag">
-                <p class="lead">
-                    <h2><span class="text-body-secondary">Accesorios</span></h2> <br><br>
-                    Explora nuestra sección de accesorios y encuentra el toque perfecto para completar tu estilo. 
-                    Desde llamativos bolsos hasta delicadas joyas, nuestra colección de accesorios está diseñada 
-                    para realzar tu look y añadir un toque de sofisticación a cualquier conjunto. 
-                </p> 
-                </div>
-            </div>
-            <!--Segunda columa con imagen circular-->
-            <div class="col-md-5 col-sm-12 text-center">
-                <div class="d-flex justify-content-center align-items-center">
-                    <img src="https://i.pinimg.com/474x/6b/3a/b2/6b3ab2267859043e3d90fb69ba542db7.jpg" class="rounded-circle img-fluid" alt="Imagen circular mano con anillo" style="width: 400px; height: 400px;">
-                </div>
-            </div>
-            </div>
-            <!--------------------------------------------------------------------------------------------------------->
-            <!--Linea divisora-->
-            <hr class="featurette-divider">
-
-            <!--Productos en venta sección de ropa-->
-            <h1 id="catalogoRopa" class="featurette-heading fw-normal lh-1">Ropa</h1> <br><br>
-
-            <div class="row">
-            <!--Columna-->
-            <div class="col-md-2 col-sm-4 card-producto">
-                <!--Card-->
-                <div class="card">
-                <img src="https://i.pinimg.com/474x/6d/f6/d5/6df6d5b1e9cd4167ad37b7a8557c1693.jpg" class="card-img-top" alt="Camisa blanca">
-                <div class="card-body">
-                    <h5 class="card-title">Camisa blanca</h5>
-                    <p class="card-text">$449</p>
-                    <button class="btn btn-dark botonAñadir">Añadir</button>
-
-                </div>
-                </div>
-                <!--/card-->
-            </div>
-            <!--Columna-->
-            <div class="col-md-2 col-sm-4">
-                <!--Card-->
-                <div class="card" >
-                <img src="https://i.pinimg.com/474x/6f/af/e1/6fafe1996efa520a77372f8e01060ef6.jpg" class="card-img-top" alt="Pantalón de vestir azul marino">
-                <div class="card-body">
-                    <h5 class="card-title">Pantalón de vestir azul marino</h5>
-                    <p class="card-text">$ 749</p>
-                    <button class="btn btn-dark botonAñadir">Añadir</button>
-
-                </div>
-                </div>
-                <!--/card-->
-            </div>
-            <!--Columna-->
-            <div class="col-md-2 col-sm-4">
-                <!--Card-->
-                <div class="card" >
-                <img src="https://i.pinimg.com/474x/8c/e5/29/8ce529af57d3bc843755873c106d6361.jpg" class="card-img-top" alt="Traje negro">
-                <div class="card-body">
-                    <h5 class="card-title">Traje negro</h5>
-                    <p class="card-text">$ 1599</p>
-                    <button class="btn btn-dark botonAñadir">Añadir</button>
-
-                </div>
-                </div>
-                <!--/card-->
-            </div>
-            <!--Columna-->
-            <div class="col-md-2 col-sm-4">
-                <!--Card-->
-                <div class="card" >
-                <img src="https://i.pinimg.com/474x/4c/6b/5a/4c6b5ad613f217475971fa2aaa70a813.jpg" class="card-img-top" alt="Pantalón de vestir beige">
-                <div class="card-body">
-                    <h5 class="card-title">Pantalón de vestir beige</h5>
-                    <p class="card-text">$ 699</p>
-                    <button class="btn btn-dark botonAñadir">Añadir</button>
-
-                </div>
-                </div>
-                <!--/card-->
-            </div>
-            <!--Columna-->
-            <div class="col-md-2 col-sm-4">
-                <!--Card-->
-                <div class="card" >
-                <img src="https://i.pinimg.com/474x/34/52/99/34529926f70b82e8e642df369aac3138.jpg" class="card-img-top" alt="Sueter blanco">
-                <div class="card-body">
-                    <h5 class="card-title">Sueter blanco</h5>
-                    <p class="card-text">$ 449</p>
-                    <button class="btn btn-dark botonAñadir">Añadir</button>
-
-                </div>
-                </div>
-                <!--/card-->
-            </div>
+        </div>
+        <!-- /carrusel -->
+        </div>
+    
+        <!--------------------------------------------------------------------------------------------------------->
+        <!--Linea divisora-->
+        <hr class="featurette-divider">
+        <!--Info con imagen a la izquierda-->
+        <div class="row featurette">
+        <div class="col-md-7 order-md-2"> <!--orden-md-2 indica que va en la segunda columna-->
+            <div id="info-pag">
+            <p class="lead">
+                <h2><span class="text-body-secondary">Ropa</span></h2> <br><br>
+                Explora la sección de ropa! 
+                Nuestra amplia selección de ropa te ofrece la oportunidad de expresar tu personalidad y destacar tu estilo. 
+                Descubre prendas de alta calidad con cortes y diseños que se adaptan a todas las ocasiones, 
+                todo cuidadosamente seleccionado para satisfacer tus gustos y necesidades.
                 
+            </p> 
             </div>
-
-            <!--------------------------------------------------------------------------------------------------------->
-            <!--Linea divisora-->
-            <hr class="featurette-divider">
-
-            <!--Productos en venta sección de accesorios-->
-            <h1 id="catalogoAccesorios" class="featurette-heading fw-normal lh-1">Accesorios</h1> <br><br>
-
-            <div class="row">
-            <!--Columna-->
-            <div class="col-md-2 col-sm-4">
-                <!--Card-->
-                <div class="card" >
-                <img src="https://i.pinimg.com/474x/2b/00/c7/2b00c73c1f63dfef89a5605304f0337d.jpg" class="card-img-top" alt="Anillos y collar dorados">
-                <div class="card-body">
-                    <h5 class="card-title"> Anillos y collar dorados</h5>
-                    <p class="card-text">$ 1200</p>
-                    <button class="btn btn-dark botonAñadir">Añadir</button>
-
-                </div>
-                </div>
-                <!--/card-->
+        </div>
+        <!--Imagen circular-->
+        <div class="col-md-4 order-md-1"> <!--Primera columna-->
+            <div class="d-flex justify-content-center align-items-center">
+            <img src="https://i.pinimg.com/474x/68/f5/53/68f5535df68857ff0d3dde6adeaeee8a.jpg" class="rounded-circle img-fluid" alt="Imagen circular closeup outfit" style="width: 400px; height: 400px;">
             </div>
-            <!--Columna-->
-            <div class="col-md-2 col-sm-4">
-                <!--Card-->
-                <div class="card" >
-                <img src="https://i.pinimg.com/474x/66/22/a0/6622a0ff4b63f612a432a8c7f2ff3cf1.jpg" class="card-img-top" alt="Pulsera dorada">
-                <div class="card-body">
-                    <h5 class="card-title">Pulsera dorada</h5>
-                    <p class="card-text">$ 299</p>
-                    <button class="btn btn-dark botonAñadir">Añadir</button>
+        </div>
+        </div>
+        <!--------------------------------------------------------------------------------------------------------->
+        <!--Linea divisora-->
+        <hr class="featurette-divider">
 
-                </div>
-                </div>
-                <!--/card-->
+        <!--Información de la página con imagen a la derecha-->
+        <div class="row">
+        <div class="col-md-7 col-sm-12">
+            <div id="info-pag">
+            <p class="lead">
+                <h2><span class="text-body-secondary">Accesorios</span></h2> <br><br>
+                Explora nuestra sección de accesorios y encuentra el toque perfecto para completar tu estilo. 
+                Desde llamativos bolsos hasta delicadas joyas, nuestra colección de accesorios está diseñada 
+                para realzar tu look y añadir un toque de sofisticación a cualquier conjunto. 
+            </p> 
             </div>
-            <!--Columna-->
-            <div class="col-md-2 col-sm-4">
-                <!--Card-->
-                <div class="card" >
-                <img src="https://i.pinimg.com/474x/d9/09/94/d909945d79dbd1affac05cca83d099d0.jpg" class="card-img-top" alt="Conjunto anillos">
-                <div class="card-body">
-                    <h5 class="card-title">Conjunto anillos</h5>
-                    <p class="card-text">$ 399</p>
-                    <button class="btn btn-dark botonAñadir">Añadir</button>
-
-                </div>
-                </div>
-                <!--/card-->
+        </div>
+        <!--Segunda columa con imagen circular-->
+        <div class="col-md-5 col-sm-12 text-center">
+            <div class="d-flex justify-content-center align-items-center">
+                <img src="https://i.pinimg.com/474x/6b/3a/b2/6b3ab2267859043e3d90fb69ba542db7.jpg" class="rounded-circle img-fluid" alt="Imagen circular mano con anillo" style="width: 400px; height: 400px;">
             </div>
-                
-            </div>
+        </div>
+        </div>
 
-            <!--------------------------------------------------------------------------------------------------------->
-            <!--Linea divisora-->
-            <hr class="featurette-divider">
-
-            <!--Carrito de compras-->
-            <br><h2 class="featurette-heading fw-normal lh-1">Carrito de compras</h2> <br><br>
-
-            <table class="table">
-            <thead>
-                <tr>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                </tr>
-            </thead>
-            <tbody id="carrito-body">
-                <!-- Aquí se agregarán los productos -->
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td><strong>Total</strong></td>
-                    <td id="precio-total">$0.00</td>
-                </tr>
-            </tfoot>
-            </table>  
+        </div> 
     `);
     response.write(html_javascript);  
     response.end();
     
   } 
+  // Si la url es igual a /catálogo
   else if (request.url == "/catalogo") {
     response.setHeader('Content-Type', 'text/html');
     response.write(html_header);
-    response.write(`<h2 class="title"><br>Catálogo...</h2>`);
+    response.write(`<br> <h1 id="catalogoRopa" class="featurette-heading fw-normal lh-1">Catálogo</h1> <br>
+    `);
+    response.write(`
+        <!--Linea divisora-->
+        <hr class="featurette-divider">
+
+        <!--Productos en venta sección de ropa-->
+        <h1 id="catalogoRopa" class="featurette-heading fw-normal lh-1">Ropa</h1> <br><br>
+
+        <div class="row">
+        <!--Columna-->
+        <div class="col-md-2 col-sm-4 card-producto">
+            <!--Card-->
+            <div class="card">
+            <img src="https://i.pinimg.com/474x/6d/f6/d5/6df6d5b1e9cd4167ad37b7a8557c1693.jpg" class="card-img-top" alt="Camisa blanca">
+            <div class="card-body">
+                <h5 class="card-title">Camisa blanca</h5>
+                <p class="card-text">$449</p>
+                <button class="btn btn-dark botonAñadir">Añadir</button>
+
+            </div>
+            </div>
+            <!--/card-->
+        </div>
+        <!--Columna-->
+        <div class="col-md-2 col-sm-4">
+            <!--Card-->
+            <div class="card" >
+            <img src="https://i.pinimg.com/474x/6f/af/e1/6fafe1996efa520a77372f8e01060ef6.jpg" class="card-img-top" alt="Pantalón de vestir azul marino">
+            <div class="card-body">
+                <h5 class="card-title">Pantalón de vestir azul marino</h5>
+                <p class="card-text">$ 749</p>
+                <button class="btn btn-dark botonAñadir">Añadir</button>
+
+            </div>
+            </div>
+            <!--/card-->
+        </div>
+        <!--Columna-->
+        <div class="col-md-2 col-sm-4">
+            <!--Card-->
+            <div class="card" >
+            <img src="https://i.pinimg.com/474x/8c/e5/29/8ce529af57d3bc843755873c106d6361.jpg" class="card-img-top" alt="Traje negro">
+            <div class="card-body">
+                <h5 class="card-title">Traje negro</h5>
+                <p class="card-text">$ 1599</p>
+                <button class="btn btn-dark botonAñadir">Añadir</button>
+
+            </div>
+            </div>
+            <!--/card-->
+        </div>
+        <!--Columna-->
+        <div class="col-md-2 col-sm-4">
+            <!--Card-->
+            <div class="card" >
+            <img src="https://i.pinimg.com/474x/4c/6b/5a/4c6b5ad613f217475971fa2aaa70a813.jpg" class="card-img-top" alt="Pantalón de vestir beige">
+            <div class="card-body">
+                <h5 class="card-title">Pantalón de vestir beige</h5>
+                <p class="card-text">$ 699</p>
+                <button class="btn btn-dark botonAñadir">Añadir</button>
+
+            </div>
+            </div>
+            <!--/card-->
+        </div>
+        <!--Columna-->
+        <div class="col-md-2 col-sm-4">
+            <!--Card-->
+            <div class="card" >
+            <img src="https://i.pinimg.com/474x/34/52/99/34529926f70b82e8e642df369aac3138.jpg" class="card-img-top" alt="Sueter blanco">
+            <div class="card-body">
+                <h5 class="card-title">Sueter blanco</h5>
+                <p class="card-text">$ 449</p>
+                <button class="btn btn-dark botonAñadir">Añadir</button>
+
+            </div>
+            </div>
+            <!--/card-->
+        </div>
+            
+        </div>
+
+        <!--------------------------------------------------------------------------------------------------------->
+        <!--Linea divisora-->
+        <hr class="featurette-divider">
+
+        <!--Productos en venta sección de accesorios-->
+        <h1 id="catalogoAccesorios" class="featurette-heading fw-normal lh-1">Accesorios</h1> <br><br>
+
+        <div class="row">
+        <!--Columna-->
+        <div class="col-md-2 col-sm-4">
+            <!--Card-->
+            <div class="card" >
+            <img src="https://i.pinimg.com/474x/2b/00/c7/2b00c73c1f63dfef89a5605304f0337d.jpg" class="card-img-top" alt="Anillos y collar dorados">
+            <div class="card-body">
+                <h5 class="card-title"> Anillos y collar dorados</h5>
+                <p class="card-text">$ 1200</p>
+                <button class="btn btn-dark botonAñadir">Añadir</button>
+
+            </div>
+            </div>
+            <!--/card-->
+        </div>
+        <!--Columna-->
+        <div class="col-md-2 col-sm-4">
+            <!--Card-->
+            <div class="card" >
+            <img src="https://i.pinimg.com/474x/66/22/a0/6622a0ff4b63f612a432a8c7f2ff3cf1.jpg" class="card-img-top" alt="Pulsera dorada">
+            <div class="card-body">
+                <h5 class="card-title">Pulsera dorada</h5>
+                <p class="card-text">$ 299</p>
+                <button class="btn btn-dark botonAñadir">Añadir</button>
+
+            </div>
+            </div>
+            <!--/card-->
+        </div>
+        <!--Columna-->
+        <div class="col-md-2 col-sm-4">
+            <!--Card-->
+            <div class="card" >
+            <img src="https://i.pinimg.com/474x/d9/09/94/d909945d79dbd1affac05cca83d099d0.jpg" class="card-img-top" alt="Conjunto anillos">
+            <div class="card-body">
+                <h5 class="card-title">Conjunto anillos</h5>
+                <p class="card-text">$ 399</p>
+                <button class="btn btn-dark botonAñadir">Añadir</button>
+
+            </div>
+            </div>
+            <!--/card-->
+        </div>
+            
+        </div>     
+    `);
+
     response.write(html_javascript);  
     response.end();
   }
+  // Si la url es igual a /carrito
   else if (request.url == "/carrito") {
     response.setHeader('Content-Type', 'text/html');
     response.write(html_header);
-    response.write(`<h2 class="title"><br>Carrito de compras...</h2>`);
+    response.write(`
+        <!--Carrito de compras-->
+        <br><h2 class="featurette-heading fw-normal lh-1">Carrito de compras</h2> <br><br>
+
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody id="carrito-body">
+            <!-- Aquí se agregarán los productos -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td id="precio-total">$0.00</td>
+            </tr>
+        </tfoot>
+        </table> 
+    `);
+
     response.write(html_javascript);  
     response.end();
   }
+  // Si la url es igual a /agregarProducto
   else if (request.url == "/agregarProducto") {
     response.setHeader('Content-Type', 'text/html');
     response.write(html_header);
@@ -444,7 +449,7 @@ const server = http.createServer( (request, response) => {
     response.write(html_javascript);  
     response.end();
   }
-    
+    // Si la url no está definida
     else {
     response.statusCode = 404;
     response.setHeader('Content-Type', 'text/html');
