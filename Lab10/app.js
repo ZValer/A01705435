@@ -116,7 +116,7 @@ const html_javascript = `
             boton.addEventListener('click', function () {
                 // Obtenemos el nombre del producto y su precio
                 const nombreProducto = boton.parentElement.querySelector('.card-title').innerText;
-                const precioProducto = parseFloat(boton.parentElement.querySelector('#precioProducto_barbaro').innerText);
+                const precioProducto = parseFloat(boton.parentElement.querySelector('#precioProducto_tienda').innerText);
 
                 // Creamos un nuevo elemento de fila para la tabla del carrito
                 const fila = document.createElement('tr');
@@ -196,6 +196,9 @@ const productosCatalogo = [
 ];
 
 const http = require('http');
+const url = require('url'); // Agregado
+const querystring = require('querystring'); // Agregado
+
 const server = http.createServer( (request, response) => {    
     console.log(request.url);
     // Si la url es igual a la raíz
@@ -345,7 +348,7 @@ const server = http.createServer( (request, response) => {
                 <img id="imagen_producto" src="${productoCatalogo.imagen}" class="card-img-top" alt="Imagen de ${productoCatalogo.clase}">
                 <div class="card-body">
                     <h5 class="card-title">${productoCatalogo.clase}</h5>
-                    <p class="card-text">Precio: $<span id="precioProducto_barbaro">${productoCatalogo.precioProducto}</span></p>
+                    <p class="card-text">Precio: $<span id="precioProducto_tienda">${productoCatalogo.precioProducto}</span></p>
                     <button id="boton_añadir" class="btn btn-dark botonAñadir">Añadir</button>
                 </div>
                 </div>
@@ -391,12 +394,12 @@ const server = http.createServer( (request, response) => {
   }
   
   // Si la url es igual a /agregarProducto
-  else if (request.url == "/agregarProducto") {
+  else if (request.url == "/agregarProducto" && request.method == "GET") {
     response.setHeader('Content-Type', 'text/html');
     response.write(html_header);
     response.write(`<h2 class="title"><br>Agregar nuevo producto aquí...</h2> <br><br>`);
     response.write(`
-        <form action="/crear" method="POST">
+        <form action="/agregarProducto" method="POST">
             <div class="form-floating mb-3">
                 <input class="form-control" id="clase" name="clase">
                 <label for="clase">Nombre del producto</label>
@@ -417,6 +420,33 @@ const server = http.createServer( (request, response) => {
     response.write(html_javascript);  
     response.end();
   }
+
+  else if (request.url == "/agregarProducto" && request.method == "POST") {
+        let body = '';
+
+        request.on('data', (chunk) => {
+            body += chunk.toString();
+        });
+
+        request.on('end', () => {
+        const parsedBody = querystring.parse(body);
+        const clase = parsedBody.clase;
+        const precioProducto = parsedBody.precioProducto;
+        const imagen = parsedBody.imagen;
+
+        productosCatalogo.push({
+          clase: clase, 
+          precioProducto: precioProducto, 
+          imagen: imagen,
+        });
+        // Redirigir al usuario a la página del catálogo
+        response.writeHead(302, { 'Location': '/catalogo' });
+        response.write(html_javascript);
+        return response.end();
+    });
+
+  }
+
     // Si la url no está definida
     else {
     response.statusCode = 404;
