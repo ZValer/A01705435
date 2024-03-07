@@ -198,15 +198,17 @@ const app = express();
 
 const url = require('url'); // Agregado
 const querystring = require('querystring'); // Agregado
-/*
-const server = http.createServer( (request, response) => {    
-    console.log(request.url);
-    // Si la url es igual a la raíz
-    if (request.url == "/") {
-    response.setHeader('Content-Type', 'text/html');
-    response.write(html_header);
-    response.write(`
-        <!--------------------------------------------------------------------------------------------------------->
+
+//Middleware
+app.use((request, response, next) => {
+    console.log('Middleware!');
+    next(); //Le permite a la petición avanzar hacia el siguiente middleware
+});
+
+// Agregar respuesta a ruta raiz
+app.get('/',(request, response, next) => {
+    let html = html_header;
+    html += `
         <!--Imagenes para el título en dos columnas-->
         <div class="container-fluid text-center">
         <div class="row justify-content-center no-gutters">
@@ -318,11 +320,27 @@ const server = http.createServer( (request, response) => {
         </div>
 
         </div> 
-    `);
-    response.write(html_javascript);  
-    response.end();
+    `;
     
+    html += html_javascript;
+    response.send(html); //Manda la respuesta
+});
+
+// Si no existe la URL error 404
+app.use((request, response, next) => {
+    response.status(404);
+    let html = html_header;
+    html += '<h2><br>Esta página ya no existe...</h2>';
+    html += html_javascript;
+    response.send(html); //Manda la respuesta
+});
+
+/*
+const server = http.createServer( (request, response) => {    
+    // Si la url es igual a la raíz
+    if (request.url == "/") {
   } 
+  
   // Si la url es igual a /catálogo
   else if (request.url == "/catalogo") {
     response.setHeader('Content-Type', 'text/html');
@@ -447,15 +465,6 @@ const server = http.createServer( (request, response) => {
 
   }
 
-    // Si la url no está definida
-    else {
-    response.statusCode = 404;
-    response.setHeader('Content-Type', 'text/html');
-    response.write(html_header);
-    response.write(`<h2 class="title"><br>Esta ruta no existe...</h2>`);
-    response.write(html_javascript);  
-    response.end();
-  }
 });
 
 */
