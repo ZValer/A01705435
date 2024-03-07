@@ -388,33 +388,11 @@ app.get('/catalogo',(request, response, next) => {
     response.send(html); //Manda la respuesta
 });
 
-
-// Si no existe la URL error 404
-app.use((request, response, next) => {
-    response.status(404);
+// Si la URL es /agregarProducto
+app.get('/agregarProducto', (request, response, next) => {
     let html = html_header;
-    html += '<h2><br>Esta página ya no existe...</h2>';
-    html += html_javascript;
-    response.send(html); //Manda la respuesta
-});
-
-/*
-const server = http.createServer( (request, response) => {    
-    // Si la url es igual a la raíz
-    if (request.url == "/") {
-  } 
-
-  // Si la url es igual a /catálogo
-  else if (request.url == "/catalogo") {
-    
-  }
-  
-  // Si la url es igual a /agregarProducto
-  else if (request.url == "/agregarProducto" && request.method == "GET") {
-    response.setHeader('Content-Type', 'text/html');
-    response.write(html_header);
-    response.write(`<h2 class="title"><br>Agregar nuevo producto aquí...</h2> <br><br>`);
-    response.write(`
+    html += `
+    <h2 class="title"><br>Agregar nuevo producto aquí...</h2> <br><br>
         <form action="/agregarProducto" method="POST">
             <div class="form-floating mb-3">
                 <input class="form-control" id="clase" name="clase">
@@ -432,6 +410,38 @@ const server = http.createServer( (request, response) => {
           <br><br>
           <input class="button btn btn-primary" type="submit" value="Agregar">
         </form>
+    `;
+    html += html_javascript;
+    response.send(html); //Manda la respuesta
+});
+
+
+// Si no existe la URL error 404
+app.use((request, response, next) => {
+    response.status(404);
+    let html = html_header;
+    html += '<h2><br>Esta página ya no existe...</h2>';
+    html += html_javascript;
+    response.send(html); //Manda la respuesta
+});
+
+/*
+const server = http.createServer( (request, response) => {    
+    // Si la url es igual a la raíz
+    if (request.url == "/") {
+  } 
+  // Si la url es igual a /catálogo
+  else if (request.url == "/catalogo") {
+    
+  }
+  
+  // Si la url es igual a /agregarProducto
+  else if (request.url == "/agregarProducto" && request.method == "GET") {
+    response.setHeader('Content-Type', 'text/html');
+    response.write(html_header);
+    response.write(`<h2 class="title"><br>Agregar nuevo producto aquí...</h2> <br><br>`);
+    response.write(`
+        
       `);
     response.write(html_javascript);  
     response.end();
