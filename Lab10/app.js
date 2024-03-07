@@ -342,12 +342,11 @@ const server = http.createServer( (request, response) => {
             <div class="col-md-2 col-sm-4 card-producto">
                 <!--Card-->
                 <div class="card">
-                <img id="imagen_barbaro" src="${productoCatalogo.imagen}" class="card-img-top" alt="Imagen de ${productoCatalogo.clase}">
+                <img id="imagen_producto" src="${productoCatalogo.imagen}" class="card-img-top" alt="Imagen de ${productoCatalogo.clase}">
                 <div class="card-body">
                     <h5 class="card-title">${productoCatalogo.clase}</h5>
                     <p class="card-text">Precio: $<span id="precioProducto_barbaro">${productoCatalogo.precioProducto}</span></p>
-                    <button id="boton_levelear_barbaro" class="btn btn-dark botonAñadir">Añadir</button>
-            
+                    <button id="boton_añadir" class="btn btn-dark botonAñadir">Añadir</button>
                 </div>
                 </div>
                 <!--/card-->
@@ -395,7 +394,26 @@ const server = http.createServer( (request, response) => {
   else if (request.url == "/agregarProducto") {
     response.setHeader('Content-Type', 'text/html');
     response.write(html_header);
-    response.write(`<h2 class="title"><br>Agregar nuevos productos aqui...</h2>`);
+    response.write(`<h2 class="title"><br>Agregar nuevo producto aquí...</h2> <br><br>`);
+    response.write(`
+        <form action="/crear" method="POST">
+            <div class="form-floating mb-3">
+                <input class="form-control" id="clase" name="clase">
+                <label for="clase">Nombre del producto</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" value="0" class="form-control input number" id="precioProducto" name="precioProducto">
+                <label for="precioProducto">Precio</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="imagen" name="imagen">
+                <label for="imagen">URL imagen</label>
+            </div>
+
+          <br><br>
+          <input class="button btn btn-primary" type="submit" value="Agregar">
+        </form>
+      `);
     response.write(html_javascript);  
     response.end();
   }
@@ -409,6 +427,5 @@ const server = http.createServer( (request, response) => {
     response.end();
   }
 });
-
 
 server.listen(3000);
