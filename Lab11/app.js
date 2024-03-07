@@ -326,40 +326,22 @@ app.get('/',(request, response, next) => {
     response.send(html); //Manda la respuesta
 });
 
-// Si no existe la URL error 404
-app.use((request, response, next) => {
-    response.status(404);
-    let html = html_header;
-    html += '<h2><br>Esta página ya no existe...</h2>';
-    html += html_javascript;
-    response.send(html); //Manda la respuesta
-});
 
-/*
-const server = http.createServer( (request, response) => {    
-    // Si la url es igual a la raíz
-    if (request.url == "/") {
-  } 
-  
-  // Si la url es igual a /catálogo
-  else if (request.url == "/catalogo") {
-    response.setHeader('Content-Type', 'text/html');
-    response.write(html_header);
-    response.write(`<br> <h1 id="catalogoRopa" class="featurette-heading fw-normal lh-1">Catálogo</h1> <br>
-    `);
-    // Generar tarjetas de productos
-    response.write(`
+// Si la url es igual a /catálogo
+app.get('/catalogo',(request, response, next) => {
+    let html = html_header;
+    html += `
+    <br> <h1 id="catalogoRopa" class="featurette-heading fw-normal lh-1">Catálogo</h1> <br>
     <!--Linea divisora-->
     <hr class="featurette-divider">
 
-    <!--Productos en venta-->
-
-    <div class="row">`
-    );
-      let html_productosCatalogo = '';
-      for (let productoCatalogo of productosCatalogo) {
-          html_productosCatalogo += `
-          <!--Columna-->
+    <div class="row">
+    `;
+    
+    // Generar tarjetas de productos
+    for (let productoCatalogo of productosCatalogo){
+        html+=`
+        <!--Columna-->
             <div class="col-md-2 col-sm-4 card-producto">
                 <!--Card-->
                 <div class="card">
@@ -372,16 +354,11 @@ const server = http.createServer( (request, response) => {
                 </div>
                 <!--/card-->
             </div>
-          `;
-      }
-    response.write(html_productosCatalogo);
-    response.write(`</div>
-
-    `);
-
+        `;
+    }
     //--------------------------------------------------------------------//
     //Carrito de compras
-    response.write(`
+    html+=`
         <!--Linea divisora-->
         <hr class="featurette-divider">
 
@@ -405,10 +382,31 @@ const server = http.createServer( (request, response) => {
             </tr>
         </tfoot>
         </table>   
-    `);
+    `;
+    
+    html += html_javascript;
+    response.send(html); //Manda la respuesta
+});
 
-    response.write(html_javascript);  
-    response.end();
+
+// Si no existe la URL error 404
+app.use((request, response, next) => {
+    response.status(404);
+    let html = html_header;
+    html += '<h2><br>Esta página ya no existe...</h2>';
+    html += html_javascript;
+    response.send(html); //Manda la respuesta
+});
+
+/*
+const server = http.createServer( (request, response) => {    
+    // Si la url es igual a la raíz
+    if (request.url == "/") {
+  } 
+
+  // Si la url es igual a /catálogo
+  else if (request.url == "/catalogo") {
+    
   }
   
   // Si la url es igual a /agregarProducto
