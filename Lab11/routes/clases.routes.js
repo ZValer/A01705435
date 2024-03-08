@@ -417,14 +417,4 @@ router.get('/',(request, response, next) => {
     response.send(html); //Manda la respuesta
 });
 
-// Si no existe la URL error 404
-router.use((request, response, next) => {
-    response.status(404);
-    let html = html_header;
-    html += '<h2><br>Esta página ya no existe...</h2>';
-    html += html_javascript;
-    response.send(html); //Manda la respuesta
-});
-
-
 module.exports = router;

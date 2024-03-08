@@ -15,4 +15,12 @@ app.use((request, response, next) => {
   
 const rutasClases = require('./routes/clases.routes');
 app.use('/', rutasClases);
+
+const path = require('path');
+// Si no existe la URL html de error 404
+app.use((request, response, next) => {
+  response.status(404);
+  response.sendFile(path.join(__dirname, 'views', '404.html')); //Manda la respuesta
+});
+
 app.listen(3000);
