@@ -1,8 +1,14 @@
 const express = require('express');
 const app = express();
 
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
 const url = require('url'); // Agregado
 const querystring = require('querystring'); // Agregado
+
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
@@ -16,7 +22,6 @@ app.use((request, response, next) => {
 const rutasClases = require('./routes/clases.routes');
 app.use('/', rutasClases);
 
-const path = require('path');
 // Si no existe la URL html de error 404
 app.use((request, response, next) => {
   response.status(404);
