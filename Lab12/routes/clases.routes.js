@@ -218,6 +218,10 @@ router.get('/catalogo',(request, response, next) => {
     });
 });
 
+router.get('/seccionGraficas',(request, response, next) => {
+    response.render('seccionGraficas');
+});
+
 // Agregar respuesta a ruta raiz
 router.get('/',(request, response, next) => {
     response.render('pagInicio');
