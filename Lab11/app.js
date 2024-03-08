@@ -199,7 +199,10 @@ const app = express();
 const url = require('url'); // Agregado
 const querystring = require('querystring'); // Agregado
 
-//Middleware
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
+
+//Middlewares
 app.use((request, response, next) => {
     console.log('Middleware!');
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
@@ -415,6 +418,16 @@ app.get('/agregarProducto', (request, response, next) => {
     response.send(html); //Manda la respuesta
 });
 
+app.post('/agregarProducto', (request, response, next) => {
+    console.log(request.body);
+    productosCatalogo.push({
+        clase: request.body.clase,
+        precioProducto: request.body.precioProducto, 
+        imagen: request.body.imagen,
+    });
+    response.redirect('/');
+});
+
 
 // Si no existe la URL error 404
 app.use((request, response, next) => {
@@ -437,14 +450,7 @@ const server = http.createServer( (request, response) => {
   
   // Si la url es igual a /agregarProducto
   else if (request.url == "/agregarProducto" && request.method == "GET") {
-    response.setHeader('Content-Type', 'text/html');
-    response.write(html_header);
-    response.write(`<h2 class="title"><br>Agregar nuevo producto aquí...</h2> <br><br>`);
-    response.write(`
-        
-      `);
-    response.write(html_javascript);  
-    response.end();
+    
   }
 
   else if (request.url == "/agregarProducto" && request.method == "POST") {
