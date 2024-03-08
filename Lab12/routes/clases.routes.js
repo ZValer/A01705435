@@ -200,29 +200,7 @@ const productosCatalogo = [
 
 // Si la URL es /agregarProducto
 router.get('/agregarProducto', (request, response, next) => {
-    let html = html_header;
-    html += `
-    <h2 class="title"><br>Agregar nuevo producto aquí...</h2> <br><br>
-        <form action="/agregarProducto" method="POST">
-            <div class="form-floating mb-3">
-                <input class="form-control" id="clase" name="clase">
-                <label for="clase">Nombre del producto</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="number" value="0" class="form-control input number" id="precioProducto" name="precioProducto">
-                <label for="precioProducto">Precio</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input class="form-control" id="imagen" name="imagen">
-                <label for="imagen">URL imagen</label>
-            </div>
-
-          <br><br>
-          <input class="button btn btn-primary" type="submit" value="Agregar">
-        </form>
-    `;
-    html += html_javascript;
-    response.send(html); //Manda la respuesta
+    response.render('agregarProducto');
 });
 
 router.post('/agregarProducto', (request, response, next) => {
