@@ -209,17 +209,13 @@ router.post('/agregarProducto', (request, response, next) => {
         precioProducto: request.body.precioProducto, 
         imagen: request.body.imagen,
     });
-    response.redirect('/');
+    response.redirect('/catalogo');
 });
 
 router.get('/catalogo',(request, response, next) => {
     response.render('catalogo', {
         productosCatalogo: productosCatalogo,
     });
-});
-
-router.get('/seccionGraficas',(request, response, next) => {
-    response.render('seccionGraficas');
 });
 
 // Agregar respuesta a ruta raiz
