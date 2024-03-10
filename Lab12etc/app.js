@@ -4,6 +4,14 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+const session = require('express-session');
+app.use(session({
+  secret: 'String secreto, aleatorio muy largo, que se utiliza para cifrar la sesión', 
+  resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
+  saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
+}));
+
+
 const url = require('url'); // Agregado
 const querystring = require('querystring'); // Agregado
 
@@ -21,6 +29,9 @@ app.use((request, response, next) => {
 
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
+
+const rutasUsuarios = require('./routes/users.routes');
+app.use('/users', rutasUsuarios);
 
 const rutasClases = require('./routes/clases.routes');
 app.use('/', rutasClases);

@@ -1,0 +1,24 @@
+
+<%- include('includes/head.ejs') %>
+
+<!--Form para iniciar sesión-->
+<h2 class="title"><br>Iniciar sesión</h2>
+<p>Introduce tus datos: <br><br>
+
+<form action="/users/login" method="POST">
+    
+    <div class="form-floating mb-3">
+        <input class="form-control" id="username" name="username">
+        <label for="clase">Nombre de usuario</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="password" name="password">
+        <label for="precioProducto">Contraseña</label>
+    </div>
+
+    <br><br>
+    <input class="button btn btn-primary" type="submit" value="Entrar">
+</form>
+
+<%- include('includes/footJavaScript.ejs') %>
