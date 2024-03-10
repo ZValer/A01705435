@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const productosController = require('../controllers/productos.controller');
+
 //Definir constantes
 const html_header = `
 <!DOCTYPE html>
@@ -196,11 +198,7 @@ const productosCatalogo = [
 
 //-----------------------------------------------------------------------------------------
 
-//Middlewares
-
-router.get('/agregarProducto', (request, response, next) => {
-    response.render('agregarProducto');
-});
+router.get('/agregarProducto', productosController.get_agregarProducto);
 
 router.post('/agregarProducto', (request, response, next) => {
     console.log(request.body);
