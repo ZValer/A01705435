@@ -29,6 +29,9 @@ app.use((request, response, next) => {
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
   
+const rutasUsuarios = require('./routes/users.routes');
+app.use('/users', rutasUsuarios);
+
 const rutasClases = require('./routes/clases.routes');
 app.use('/', rutasClases);
 
