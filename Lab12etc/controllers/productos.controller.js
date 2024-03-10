@@ -12,7 +12,7 @@ exports.post_agregarProducto = (request, response, next) => {
         request.body.imagen
     );
     mi_producto.save();
-    response.setHeader('Set-Cookie', 'ultimo_producto=' + mi_producto.clase);
+    response.setHeader('Set-Cookie', 'ultimo_producto=' + mi_producto.clase + '; HttpOnly');
     response.redirect('/catalogo');
 };
 
