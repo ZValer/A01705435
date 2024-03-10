@@ -1,7 +1,9 @@
 const Producto = require('../models/producto.model');
 
 exports.get_agregarProducto = (request, response, next) => {
-    response.render('agregarProducto');
+    response.render('agregarProducto', {
+        username: request.session.username || '',
+    });
 };
 
 exports.post_agregarProducto = (request, response, next) => {
@@ -22,5 +24,6 @@ exports.get_catalogo = (request, response, next) => {
     response.render('catalogo', {
         productosCatalogo: Producto.fetchAll(),
         ultimo_producto: request.cookies.ultimo_producto || '',
+        username: request.session.username || '',
     });
 };

@@ -1,5 +1,5 @@
 
-<%- include('includes/head.ejs') %>
+<%- include('includes/head.ejs', {username: username}) %>
 
 <!--Form para iniciar sesión-->
 <h2 class="title"><br>Iniciar sesión</h2>
@@ -9,12 +9,12 @@
     
     <div class="form-floating mb-3">
         <input class="form-control" id="username" name="username">
-        <label for="clase">Nombre de usuario</label>
+        <label for="username">Nombre de usuario</label>
     </div>
 
     <div class="form-floating mb-3">
         <input type="password" class="form-control" id="password" name="password">
-        <label for="precioProducto">Contraseña</label>
+        <label for="password">Contraseña</label>
     </div>
 
     <br><br>
