@@ -13,9 +13,15 @@ exports.post_agregarProducto = (request, response, next) => {
         request.body.precioProducto, 
         request.body.imagen
     );
-    mi_producto.save();
-    response.setHeader('Set-Cookie', 'ultimo_producto=' + mi_producto.clase + '; HttpOnly');
-    response.redirect('/catalogo');
+    
+    mi_producto.save()
+        .then(([rows, fieldData]) => {
+            response.setHeader('Set-Cookie', 'ultimo_producto=' + mi_producto.clase + '; HttpOnly');
+            response.redirect('/catalogo');
+        }).catch((error) => {
+            console.log(error);
+        });
+
 };
 
 exports.get_catalogo = (request, response, next) => {

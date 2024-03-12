@@ -10,11 +10,10 @@ module.exports = class Producto {
 
     // Este método sirve para guardar el último producto agregado
     save () {
-        productosCatalogo.push({
-            clase: this.clase,
-            precioProducto: this.precioProducto, 
-            imagen: this.imagen,
-        });
+        return db.execute(
+            `INSERT INTO producto (clase, precio, imagen) 
+            VALUES (?, ?, ?)`, 
+            [this.clase, this.precioProducto, this.imagen]);
     }
 
     // Método que devuelve los objetos del almacenamiento persistente
