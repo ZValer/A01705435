@@ -6,15 +6,15 @@
 <div class="row">
 
 <% // Generar tarjetas de productos %>
-<% for (let productoCatalogo of productosCatalogo){ %>
+<% for (let productoCatalogo of producto){ %>
     <!--Columna-->
         <div class="col-md-2 col-sm-4 card-producto">
             <!--Card-->
             <div class="card">
-            <img id="imagen_producto" src="<%=productoCatalogo.imagen%>" class="card-img-top" alt="Imagen de <%=productoCatalogo.clase%>">
+            <img id="imagen_producto" src="<%=productoCatalogo.Imagen%>" class="card-img-top" alt="Imagen de <%=productoCatalogo.clase%>">
             <div class="card-body">
-                <h5 class="card-title"><%=productoCatalogo.clase%></h5>
-                <p class="card-text">Precio: $<span id="precioProducto_tienda"><%=productoCatalogo.precioProducto%></span></p>
+                <h5 class="card-title"><%=productoCatalogo.Clase%></h5>
+                <p class="card-text">Precio: $<span id="precioProducto_tienda"><%=productoCatalogo.Precio%></span></p>
                 <button id="boton_añadir" class="btn btn-dark botonAñadir">Añadir</button>
             </div>
             </div>

@@ -1,3 +1,4 @@
+/*
 // Productos de ropa y accesorios del catálogo
 const productosCatalogo = [
     {
@@ -41,6 +42,8 @@ const productosCatalogo = [
         imagen: "https://i.pinimg.com/474x/d9/09/94/d909945d79dbd1affac05cca83d099d0.jpg",
     }   
 ];
+*/
+const db = require('../util/database');
 
 module.exports = class Producto {
     // Constructor de la clase
@@ -61,7 +64,8 @@ module.exports = class Producto {
 
     // Método que devuelve los objetos del almacenamiento persistente
     static fetchAll() {
-        return productosCatalogo;
+        //return productosCatalogo;
+        return db.execute('Select * from producto')
     }
 }
 

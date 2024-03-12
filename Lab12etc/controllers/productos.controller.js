@@ -21,9 +21,25 @@ exports.post_agregarProducto = (request, response, next) => {
 exports.get_catalogo = (request, response, next) => {
     console.log(request.cookies);
     console.log(request.cookies.ultimo_producto);
+
+
+    /*
     response.render('catalogo', {
         productosCatalogo: Producto.fetchAll(),
         ultimo_producto: request.cookies.ultimo_producto || '',
         username: request.session.username || '',
+    });
+    */
+
+    Producto.fetchAll().then(([rows, fieldData]) => {
+        //console.log(fieldData);
+        response.render('catalogo', {
+            producto: rows, 
+            ultimo_producto: request.cookies.ultimo_producto || '',
+            username: request.session.username || '',
+        });
+    })
+    .catch((error) => {
+        console.log(error)
     });
 };
