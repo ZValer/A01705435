@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
--- Host: localhost    Database: tienda_online
+-- Host: 127.0.0.1    Database: tienda_online
 -- ------------------------------------------------------
 -- Server version	8.2.0
 
@@ -55,7 +55,7 @@ CREATE TABLE `producto` (
   `Precio` int DEFAULT NULL,
   `Imagen` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`IDProducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,'Camisa blanca',449,'https://i.pinimg.com/474x/6d/f6/d5/6df6d5b1e9cd4167ad37b7a8557c1693.jpg'),(2,'Pantalón de vestir azul marino',749,'https://i.pinimg.com/474x/6f/af/e1/6fafe1996efa520a77372f8e01060ef6.jpg'),(3,'Traje negro',1599,'https://i.pinimg.com/474x/8c/e5/29/8ce529af57d3bc843755873c106d6361.jpg'),(4,'Pantalón de vestir beige',699,'https://i.pinimg.com/474x/4c/6b/5a/4c6b5ad613f217475971fa2aaa70a813.jpg'),(5,'Suéter blanco',449,'https://i.pinimg.com/474x/34/52/99/34529926f70b82e8e642df369aac3138.jpg'),(6,'Anillos y collar dorados',1200,'https://i.pinimg.com/474x/2b/00/c7/2b00c73c1f63dfef89a5605304f0337d.jpg'),(7,'Pulsera dorada',299,'https://i.pinimg.com/474x/66/22/a0/6622a0ff4b63f612a432a8c7f2ff3cf1.jpg'),(8,'Conjunto anillos',399,'https://i.pinimg.com/474x/d9/09/94/d909945d79dbd1affac05cca83d099d0.jpg');
+INSERT INTO `producto` VALUES (1,'Camisa blanca',449,'https://i.pinimg.com/474x/6d/f6/d5/6df6d5b1e9cd4167ad37b7a8557c1693.jpg'),(2,'Pantalón de vestir azul marino',749,'https://i.pinimg.com/474x/6f/af/e1/6fafe1996efa520a77372f8e01060ef6.jpg'),(3,'Traje negro',1599,'https://i.pinimg.com/474x/8c/e5/29/8ce529af57d3bc843755873c106d6361.jpg'),(4,'Pantalón de vestir beige',699,'https://i.pinimg.com/474x/4c/6b/5a/4c6b5ad613f217475971fa2aaa70a813.jpg'),(5,'Suéter blanco',449,'https://i.pinimg.com/474x/34/52/99/34529926f70b82e8e642df369aac3138.jpg'),(6,'Anillos y collar dorados',1200,'https://i.pinimg.com/474x/2b/00/c7/2b00c73c1f63dfef89a5605304f0337d.jpg'),(7,'Pulsera dorada',299,'https://i.pinimg.com/474x/66/22/a0/6622a0ff4b63f612a432a8c7f2ff3cf1.jpg'),(8,'Conjunto anillos',399,'https://i.pinimg.com/474x/d9/09/94/d909945d79dbd1affac05cca83d099d0.jpg'),(9,'Reloj dorado clásico',5600,'https://i.pinimg.com/474x/de/00/77/de00779390c2db197bbbb32c6472f5c1.jpg');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,4 +102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-11 21:30:36
+-- Dump completed on 2024-03-12 12:19:54
