@@ -4,8 +4,8 @@ const router = express.Router();
 const productosController = require('../controllers/productos.controller');
 
 router.get('/agregarProducto', productosController.get_agregarProducto);
-
 router.post('/agregarProducto', productosController.post_agregarProducto);
+router.get('/catalogo/:IDProducto', productosController.get_catalogo);
 router.get('/catalogo', productosController.get_catalogo);
 
 

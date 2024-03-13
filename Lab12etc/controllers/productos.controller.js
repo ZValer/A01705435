@@ -28,7 +28,8 @@ exports.get_catalogo = (request, response, next) => {
     console.log(request.cookies);
     console.log(request.cookies.ultimo_producto);
 
-    Producto.fetchAll().then(([rows, fieldData]) => {
+    //Producto.fetchAll().then(([rows, fieldData]) => {
+        Producto.fetch(request.params.IDProducto).then(([rows, fieldData]) => {
         //console.log(fieldData);
         response.render('catalogo', {
             producto: rows, 

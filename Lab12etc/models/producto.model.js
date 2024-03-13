@@ -21,5 +21,16 @@ module.exports = class Producto {
         //return productosCatalogo;
         return db.execute('Select * from producto')
     }
+    static fetch(IDProducto) {
+        if (IDProducto) {
+            return this.fetchOne(IDProducto);
+        } else {
+            return this.fetchAll();
+        }
+    }
+    static fetchOne(IDProducto) {
+        return db.execute('Select * from producto WHERE IDProducto = ?', [IDProducto]);
+    }
+
 }
 

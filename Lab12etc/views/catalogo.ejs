@@ -13,8 +13,11 @@
             <div class="card">
             <img id="imagen_producto" src="<%=productoCatalogo.Imagen%>" class="card-img-top" alt="Imagen de <%=productoCatalogo.clase%>">
             <div class="card-body">
-                <h5 class="card-title"><%=productoCatalogo.Clase%></h5>
+                <p class="card-text">ID: <span id="idProducto_tienda"><%=productoCatalogo.IDProducto%></span></p>
+                
+                <h5 class="card-title"> <a href="/catalogo/<%= productoCatalogo.IDProducto %>"><%=productoCatalogo.Clase%></a></h5>
                 <p class="card-text">Precio: $<span id="precioProducto_tienda"><%=productoCatalogo.Precio%></span></p>
+                
                 <button id="boton_añadir" class="btn btn-dark botonAñadir">Añadir</button>
             </div>
             </div>
