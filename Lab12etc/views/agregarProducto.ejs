@@ -5,6 +5,7 @@
     <!--Form para agregar productos-->
     <h2 class="title"><br>Agregar nuevo producto aquí...</h2> <br><br>
     <form action="/agregarProducto" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
         <div class="form-floating mb-3">
             <input class="form-control" id="clase" name="clase">
             <label for="clase">Nombre del producto</label>

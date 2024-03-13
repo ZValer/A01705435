@@ -6,6 +6,7 @@ exports.get_login = (request, response, next) => {
     response.render('login', {
         username: request.session.username || '',
         registro: false,
+        csrfToken: request.csrfToken(),
     });
 };
 
@@ -49,6 +50,7 @@ exports.get_signup = (request, response, next) => {
     response.render('login', {
         username: request.session.username || '',
         registro: true,
+        csrfToken: request.csrfToken(),
     });
 };
 

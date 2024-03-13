@@ -3,6 +3,7 @@ const Producto = require('../models/producto.model');
 exports.get_agregarProducto = (request, response, next) => {
     response.render('agregarProducto', {
         username: request.session.username || '',
+        csrfToken: request.csrfToken(),
     });
 };
 
