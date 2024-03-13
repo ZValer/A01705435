@@ -1,23 +1,27 @@
 <%- include('includes/head.ejs', {username: username}) %>
 
-<!--Form para agregar productos-->
-<h2 class="title"><br>Agregar nuevo producto aquí...</h2> <br><br>
-<form action="/agregarProducto" method="POST">
-    <div class="form-floating mb-3">
-        <input class="form-control" id="clase" name="clase">
-        <label for="clase">Nombre del producto</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input type="number" value="0" class="form-control input number" id="precioProducto" name="precioProducto">
-        <label for="precioProducto">Precio</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input class="form-control" id="imagen" name="imagen">
-        <label for="imagen">URL imagen</label>
-    </div>
+<div class="container">
 
-    <br><br>
-    <input class="button btn btn-primary" type="submit" value="Agregar">
-</form>
+    <!--Form para agregar productos-->
+    <h2 class="title"><br>Agregar nuevo producto aquí...</h2> <br><br>
+    <form action="/agregarProducto" method="POST">
+        <div class="form-floating mb-3">
+            <input class="form-control" id="clase" name="clase">
+            <label for="clase">Nombre del producto</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" value="0" class="form-control input number" id="precioProducto" name="precioProducto">
+            <label for="precioProducto">Precio</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" id="imagen" name="imagen">
+            <label for="imagen">URL imagen</label>
+        </div>
 
-<%- include('includes/footJavaScript.ejs') %>
+        <br><br>
+        <input class="button btn btn-primary" type="submit" value="Agregar">
+    </form>
+
+    <%- include('includes/footJavaScript.ejs') %>
+
+</div>
