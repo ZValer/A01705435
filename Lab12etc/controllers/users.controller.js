@@ -3,10 +3,13 @@ const bcrypt = require('bcryptjs');
 
 // Controlador para mostrar la vista de inicio de sesión
 exports.get_login = (request, response, next) => {
+    const error = request.session.error || '';
+    request.session.error = '';
     response.render('login', {
         username: request.session.username || '',
         registro: false,
         csrfToken: request.csrfToken(),
+        error: error,
     });
 };
 
@@ -24,6 +27,7 @@ exports.post_login = (request, response, next) => {
                             request.session.isLoggedIn = true;
                             response.redirect('/');
                         } else {
+                            request.session.error = "Usuario y/o contraseña incorrectos";
                             response.redirect('/users/login');
                         }
                     })
@@ -31,6 +35,7 @@ exports.post_login = (request, response, next) => {
                         console.log(error);
                     });
         } else {
+            request.session.error = "Usuario y/o contraseña incorrectos";
             response.redirect('/users/login');
         }
     })
