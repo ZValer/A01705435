@@ -3,16 +3,22 @@
 
 <div class="container">
 
-    <!--Form para iniciar sesión-->
-    <h2 class="title"><br>Iniciar sesión</h2>
-    <p>Introduce tus datos: <br><br>
-
-    <form action="/users/login" method="POST">
+    <!--Form para registrarse o iniciar sesión-->
+    <h2 class="title"><% if (registro) { %>Regístrate<% } else { %>Bienvenido<% } %></h2>
+    <form action="/users/<% if (registro) { %>signup<% } else { %>login<% } %>" method="POST">
+         
         
         <div class="form-floating mb-3">
             <input class="form-control" id="username" name="username">
             <label for="username">Nombre de usuario</label>
         </div>
+
+        <% if (registro) { %>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="name" name="name">
+                <label for="name">Nombre completo</label>
+            </div>
+        <% } %>
 
         <div class="form-floating mb-3">
             <input type="password" class="form-control" id="password" name="password">
@@ -20,7 +26,7 @@
         </div>
 
         <br><br>
-        <input class="button btn btn-primary" type="submit" value="Entrar">
+        <input class="button btn btn-primary" type="submit" value="<% if (registro) { %>Registrarme<% } else { %>Entrar<% } %>">
     </form>
 
     <%- include('includes/footJavaScript.ejs') %>
