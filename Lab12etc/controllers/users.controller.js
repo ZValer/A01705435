@@ -1,4 +1,5 @@
 const Usuario = require('../models/usuario.model');
+const bcrypt = require('bcryptjs');
 
 // Controlador para mostrar la vista de inicio de sesión
 exports.get_login = (request, response, next) => {
@@ -14,9 +15,20 @@ exports.post_login = (request, response, next) => {
     // Busca un usuario en la base de datos
     .then(([usuarios, fieldData]) => {
         if (usuarios.length == 1) {
-            // Se establece el nombre de usuario en la sesión
-            request.session.username = request.body.username;
-            response.redirect('/');
+            const usuario = usuarios[0];
+                bcrypt.compare(request.body.password, usuario.password)
+                    .then((doMatch) => {
+                        if(doMatch) {
+                            request.session.username = usuario.nombre;
+                            request.session.isLoggedIn = true;
+                            response.redirect('/');
+                        } else {
+                            response.redirect('/users/login');
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
         } else {
             response.redirect('/users/login');
         }
