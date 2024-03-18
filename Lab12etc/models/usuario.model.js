@@ -24,4 +24,17 @@ module.exports = class Usuario {
     static fetchOne(username) {
         return db.execute('Select * from usuario WHERE username = ?', [username]);
     }
+
+    static getPermisos(username) {
+        return db.execute(`
+            SELECT pr.nombre
+            FROM privilegio pr, rolprivilegio, rol r, usuariorol, usuario u
+            WHERE u.username = ? 
+                    AND u.IDUsuario = usuariorol.IDUsuario
+                    AND usuariorol.IDRol = r.IDRol 
+                    AND r.IDRol = rolprivilegio.IDRol 
+                    AND rolprivilegio.IDPrivilegio = pr.IDPrivilegio
+        `, [username]); // Consulta para obtener nombres de privilegios o permisos
+    }
+
 }
