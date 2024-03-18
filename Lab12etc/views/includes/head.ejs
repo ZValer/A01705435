@@ -43,20 +43,29 @@
                     </li>
                     
                     <!--Dropdown button-->
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="catalogo" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Catálogo
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/catalogo">Ropa</a></li>
-                        <li><a class="dropdown-item" href="/catalogo">Accesorios</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/catalogo">Carrito de compras</a></li>
-                    </ul>
+                    <% for(permiso of permisos) { %>
+                        <% if(permiso.permiso == 'ver_catalogo') { %>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="catalogo" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Catálogo
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/catalogo">Catalogo</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/catalogo">Carrito de compras</a></li>
+                                </ul>
+                            </li>
+                        <% } %>
+                    <% } %>
 
-                    <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/agregarProducto">Agregar Producto</a>
-                    </li>
+                    
+                    <% for(permiso of permisos) { %>
+                        <% if(permiso.permiso == 'añadir_producto') { %>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/agregarProducto">Agregar Producto</a>
+                            </li>
+                        <% } %>
+                    <% } %>
 
                 </ul>
                 

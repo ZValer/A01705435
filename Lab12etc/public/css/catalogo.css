@@ -30,4 +30,15 @@
 .botonAñadir {
     position: absolute; 
     bottom: 10px; /* Posición para el botón dentro de la tarjeta */
+    width: 5em;
+}
+.botonEditar {
+    position: absolute; 
+    bottom: 50px; /* Posición para el botón dentro de la tarjeta */
+    width: 5em;
+}
+
+.dorado{
+    color: rgb(163, 163, 52) !important;
+    text-decoration: none !important;
 }
