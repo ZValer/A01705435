@@ -11,15 +11,22 @@ module.exports = class Usuario {
     // Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
         return bcrypt.hash(this.password, 12) // Encriptar la contraseña
-            .then((password_cifrado) => {
-                return db.execute(
+        .then(async (password_cifrado) => {
+            try {
+                await db.execute(
                     `INSERT INTO usuario (username, nombre, password) 
                     VALUES (?, ?, ?)`, 
-                    [this.username, this.nombre, password_cifrado]);
-            })
-            .catch((error) => {
+                    [this.username, this.nombre, password_cifrado]
+                );
+                
+                return db.execute(
+                    'INSERT INTO asigna (username, IDRol) VALUES (?, 1)', 
+                    [this.username]
+                );
+            } catch(error) {
                 console.log(error);
                 throw Error('Usuario duplicado');
+            }
             });
     }
     static fetchOne(username) {
