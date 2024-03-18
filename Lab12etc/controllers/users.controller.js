@@ -61,11 +61,14 @@ exports.get_logout = (request, response, next) => {
 
 // Controlador para mostrar la vista de registro
 exports.get_signup = (request, response, next) => {
+    const error = request.session.error || '';
+    request.session.error = '';
     response.render('login', {
         username: request.session.username || '',
         registro: true,
         csrfToken: request.csrfToken(),
         permisos: request.session.permisos || [],
+        error: error,
     });
 };
 
@@ -83,5 +86,7 @@ exports.post_signup = (request, response, next) => {
         })
         .catch((error) => {
             console.log(error);
+            request.session.error = 'Nombre de usuario no disponible';
+            response.redirect('/users/signup');
         });
 };

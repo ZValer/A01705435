@@ -19,6 +19,7 @@ module.exports = class Usuario {
             })
             .catch((error) => {
                 console.log(error);
+                throw Error('Usuario duplicado');
             });
     }
     static fetchOne(username) {
