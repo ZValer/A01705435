@@ -27,13 +27,13 @@ module.exports = class Usuario {
 
     static getPermisos(username) {
         return db.execute(`
-            SELECT pr.nombre
-            FROM privilegio pr, rolprivilegio, rol r, usuariorol, usuario u
+            SELECT permiso
+            FROM privilegio pr, posee po, rol r, asigna a, usuario u
             WHERE u.username = ? 
-                    AND u.IDUsuario = usuariorol.IDUsuario
-                    AND usuariorol.IDRol = r.IDRol 
-                    AND r.IDRol = rolprivilegio.IDRol 
-                    AND rolprivilegio.IDPrivilegio = pr.IDPrivilegio
+                AND u.username = a.username 
+                AND a.IDRol = r.IDRol 
+                AND r.IDRol = po.IDRol 
+                AND po.IDPrivilegio = pr.IDPrivilegio
         `, [username]); // Consulta para obtener nombres de privilegios o permisos
     }
 

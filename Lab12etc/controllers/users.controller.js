@@ -10,6 +10,7 @@ exports.get_login = (request, response, next) => {
         registro: false,
         csrfToken: request.csrfToken(),
         error: error,
+        permisos: request.session.permisos || [],
     });
 };
 
@@ -24,7 +25,7 @@ exports.post_login = (request, response, next) => {
                     .then((doMatch) => {
                         if(doMatch) {
                             Usuario.getPermisos(usuario.username)
-                                .then(([permisos, fieldData]) => { //La consulta recibirá un arreglo con los permisos/privilegios
+                                .then(([permisos, fieldData]) => { // La consulta recibirá un arreglo con los permisos/privilegios
                                     console.log(permisos); // Para validar que se están recuperando los permisos
                                     request.session.permisos = permisos;
                                     request.session.username = usuario.nombre; 
@@ -64,6 +65,7 @@ exports.get_signup = (request, response, next) => {
         username: request.session.username || '',
         registro: true,
         csrfToken: request.csrfToken(),
+        permisos: request.session.permisos || [],
     });
 };
 

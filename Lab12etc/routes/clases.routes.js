@@ -14,6 +14,7 @@ router.get('/catalogo', isAuth, productosController.get_catalogo);
 router.get('/', isAuth, (request, response, next) => {
     response.render('pagInicio', {
         username: request.session.username || '',
+        permisos: request.session.permisos || [],
     });
 });
 

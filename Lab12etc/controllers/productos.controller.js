@@ -4,6 +4,7 @@ exports.get_agregarProducto = (request, response, next) => {
     response.render('agregarProducto', {
         username: request.session.username || '',
         csrfToken: request.csrfToken(),
+        permisos: request.session.permisos || [],
     });
 };
 
@@ -36,6 +37,7 @@ exports.get_catalogo = (request, response, next) => {
             producto: rows, 
             ultimo_producto: request.cookies.ultimo_producto || '',
             username: request.session.username || '',
+            permisos: request.session.permisos || [],
         });
     })
     .catch((error) => {

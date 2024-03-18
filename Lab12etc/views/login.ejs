@@ -1,11 +1,13 @@
-
-<%- include('includes/head.ejs', {username: username}) %>
+<%- include('includes/head.ejs', {
+    username: username,
+    permisos: permisos,
+}) %>
 
 <div class="container">
 
     <!--Form para registrarse o iniciar sesión-->
     <h2 class="title"><% if (registro) { %>Regístrate<% } else { %>Bienvenido<% } %></h2>
-    <% if(error != '') { %>
+    <% if (typeof error !== 'undefined' && error !== '') { %>
         <div class="alert alert-danger" role="alert">
             <strong><%= error %></strong>
         </div>
