@@ -26,6 +26,14 @@
                 <p class="card-text">Precio: $<span id="precioProducto_tienda"><%=productoCatalogo.Precio%></span></p>
                 
                 <button id="boton_añadir" class="btn btn-dark botonAñadir">Añadir</button>
+                <% for (let permiso of permisos) { %>
+                    <% if(permiso.permiso == 'editar_producto') { %>
+                        <button class="btn btn-dark botonEditar">
+                            <a class="dorado" href="editar/<%=productoCatalogo.IDProducto%>">Editar</a>
+                        </button>
+                        <br><br>
+                    <% } %>
+                <% } %>
             </div>
             </div>
             <!--/card-->

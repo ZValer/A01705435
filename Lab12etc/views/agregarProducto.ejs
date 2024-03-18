@@ -5,25 +5,40 @@
 
 <div class="container">
 
-    <!--Form para agregar productos-->
-    <h2 class="title"><br>Agregar nuevo producto aquí...</h2> <br><br>
-    <form action="/agregarProducto" method="POST">
+    <!--Form para agregar/editar productos-->
+    <% if(editar) { %>
+        <h2 class="title"><br>Editar producto...</h2> <br><br>
+    <% } else { %>
+        <h2 class="title"><br>Agregar nuevo producto...</h2> <br><br>
+    <% } %>
+
+    <% if(editar) { %>
+        <form action="/editar" method="POST"> 
+    <% } else { %>
+        <form action="/agregarProducto" method="POST">
+    <% } %>
+
         <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+        
+    <% if(editar) { %>
+        <input type="hidden" id="IDProducto" name="IDProducto" value="<%= producto.IDProducto %>" > 
+    <% } %>
+
         <div class="form-floating mb-3">
-            <input class="form-control" id="clase" name="clase">
+            <input class="form-control" id="clase" name="clase"  value="<% if(editar) { %><%= producto.Clase %><% } %>">
             <label for="clase">Nombre del producto</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="number" value="0" class="form-control input number" id="precioProducto" name="precioProducto">
+            <input type="number" value="<% if(editar) { %><%= producto.Precio %><% } else { %>0<% } %>" class="form-control input number" id="precioProducto" name="precioProducto">
             <label for="precioProducto">Precio</label>
         </div>
         <div class="form-floating mb-3">
-            <input class="form-control" id="imagen" name="imagen">
+            <input class="form-control" id="imagen" name="imagen" value="<% if(editar) { %><%= producto.Imagen %><% } %>">
             <label for="imagen">URL imagen</label>
         </div>
 
         <br><br>
-        <input class="button btn btn-primary" type="submit" value="Agregar">
+        <input class="button btn btn-primary" type="submit" value="Guardar">
     </form>
 
     <%- include('includes/footJavaScript.ejs') %>
