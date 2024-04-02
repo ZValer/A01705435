@@ -11,10 +11,11 @@ exports.get_agregarProducto = (request, response, next) => {
 
 exports.post_agregarProducto = (request, response, next) => {
     console.log(request.body);
+    console.log(request.file);
     const mi_producto = new Producto(
         request.body.clase, 
         request.body.precioProducto, 
-        request.body.imagen
+        request.file.filename
     );
     
     mi_producto.save()

@@ -5,8 +5,6 @@ const canView = require('../util/canView');
 const canCreate = require('../util/canCreate');
 const canEdit = require('../util/canEdit');
 
-
-
 const productosController = require('../controllers/productos.controller');
 
 router.get('/agregarProducto', isAuth, canCreate, productosController.get_agregarProducto);

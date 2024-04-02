@@ -13,9 +13,9 @@
     <% } %>
 
     <% if(editar) { %>
-        <form action="/editar" method="POST"> 
+        <form action="/editar" method="POST" enctype="multipart/form-data"> 
     <% } else { %>
-        <form action="/agregarProducto" method="POST">
+        <form action="/agregarProducto" method="POST" enctype="multipart/form-data">
     <% } %>
 
         <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
@@ -33,7 +33,7 @@
             <label for="precioProducto">Precio</label>
         </div>
         <div class="form-floating mb-3">
-            <input class="form-control" id="imagen" name="imagen" value="<% if(editar) { %><%= producto.Imagen %><% } %>">
+            <input type="file" class="form-control" id="imagen" name="imagen" value="<% if(editar) { %><%= producto.Imagen %><% } %>">
             <label for="imagen">URL imagen</label>
         </div>
 
